@@ -1,13 +1,13 @@
-import Department from '../components/pages/deaprtment'
-import mainPage from '../components/pages/main-page'
-import newsActionsPage from '../components/pages/news-actions-page'
-import newsDetailPage from '../components/news-detail-page'
+import Department from '../pages/departments/deaprtment'
+import mainPage from '../pages/main/main-page'
+import newsActionsPage from '../pages/promotions/news-actions-page'
+import newsDetailPage from '../pages/promotions/news-detail-page'
 import actionDetailPage from '../components/action-detail-page'
 import contacts from '../components/contacts'
 import our_map from '../components/our-map'
 import our_map2 from '../components/our-map2'
-import plainPage from '../components/plain-page'
-import renterPage from '../components/renter-page'
+import plainPage from '../pages/other/plain-page'
+import renterPage from '../pages/other/renter-page'
 
 export const routes = [
     {path: '/department', component: Department },

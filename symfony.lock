@@ -129,6 +129,9 @@
     "onurb/excel-bundle": {
         "version": "1.0.0"
     },
+    "php": {
+        "version": "7.2"
+    },
     "php-curl-class/php-curl-class": {
         "version": "8.6.0"
     },

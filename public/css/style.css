@@ -1,6 +1,11 @@
 @font-face {
-    font-family: arsenalB;
-    src: url(../fonts/Arsenal-Bold.ttf);
+    font-family: plumb;
+    src: url(../fonts/plumb-regular.otf);
+}
+
+@font-face {
+    font-family: plumbbold;
+    src: url(../fonts/plumb-bold.otf);
 }
 
 @font-face {
@@ -17,14 +22,16 @@ body {
     width: 100%;
     height: 100%;
     color: #B1B1B1;
-    font-family: notos;
+    font-family: plumb;
     font-size: 14px;
     margin: 0;
 }
 
-.blc_subscribe {
-    max-width: 1000px;
-    background: #009388;
+.bold{
+    font-family: plumbbold;
+}
+.w-100{
+
 }
 
 .heart {
@@ -477,9 +484,17 @@ body {
     color: #000;
     font-size: 20px;
 }
-
-.font16 {
-    font-size: 14px;
+.font10 {
+    font-size: 10px;
+}
+.font11 {
+    font-size: 11px;
+}
+.font14 {
+     font-size: 14px;
+ }
+.font17 {
+    font-size: 17px;
 }
 
 .index_actions_item {
@@ -1150,7 +1165,7 @@ body {
 }
 
 .card-carousel-cards_wrapper {
-
+    flex-wrap: nowrap;
     transition: transform 150ms ease-out;
     transform: translatex(0px);
 
@@ -1927,20 +1942,7 @@ html {
 *:before, *:after {
     box-sizing: inherit;
 }
-@media (min-width: 401px) {
-    .card-brand {
-        min-width: 220px;
-        margin: 0 20px 0 0;
-        height: 340px;
-    }
-}
-@media (max-width: 400px) {
-    .card-brand {
-        min-width: 340px;
-        margin: 0 0px 0 0;
-        height: 330px;
-    }
-}
+
 
 .logo_brand_main {
 
@@ -2579,4 +2581,8 @@ div.news-card:hover .part-text{
 }
 .slider2{
     max-width: 100%;
+}
+
+.text-black{
+    color:#000000;
 }

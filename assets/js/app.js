@@ -50,7 +50,7 @@ Vue.component('news-page',newsPage)
 import actionDetailPage from '../components/action-detail-page'
 Vue.component('action-detail-page',actionDetailPage)
 
-import newsDetailPage from '../components/news-detail-page'
+import newsDetailPage from '../pages/promotions/news-detail-page'
 Vue.component('news-detail-page',newsDetailPage)
 
 import sliderActions from '../components/slider-actions'
@@ -68,13 +68,13 @@ Vue.component('footer-my',footermy)
 import ourMap from '../components/our-map'
 Vue.component('our-map',ourMap)
 
-import renterPage from '../components/renter-page'
+import renterPage from '../pages/other/renter-page'
 Vue.component('renter-page',renterPage)
 
 import breadCrumbs from '../components/bread_crumbs'
 Vue.component('bread-crumbs',breadCrumbs)
 
-import plainPage from '../components/plain-page'
+import plainPage from '../pages/other/plain-page'
 Vue.component('plain-page',plainPage)
 
 Vue.use(BootstrapVue)
