@@ -1,6 +1,6 @@
 <template >
-    <div class="container-fluid px-0 py-5 grey-bg subscribe_blk" id="wrapper" >
-        <div class="container" >
+    <div class="container-fluid px-md-0 px-0 py-5 grey-bg subscribe_blk" id="wrapper" >
+        <div class="container px-0" >
             <div class="subscribe_wraper bg-white" >
                 <div class="container_subscribe py-5" >
                     <div class="text-black bold text-uppercase font17 pb-2" >
@@ -12,14 +12,14 @@
                         и других полезных призов!
                     </div >
                     <div class="pb-1">
-                        <b-form-input v-model="text" placeholder="email" class="input_subscribe" ></b-form-input >
+                        <b-form-input v-model="email" placeholder="email" class="input_subscribe" ></b-form-input >
                     </div >
                     <div class="pb-4" >
                         <input type="checkbox" class="" id="exampleCheck1" >
                         <label class="text10" for="exampleCheck1" > Я прочитал (-а) и принимаю Политику
                             конфиденциальности</label >
                     </div >
-                    <b-button pill class="text-light" variant="info">
+                    <b-button pill class="text-light" variant="info" @click="saveEmail">
                         Подписаться
                     </b-button >
                 </div >
@@ -78,9 +78,6 @@
                 });
 
                 this.show_form = false;
-
-                this.$refs.phone.classList.add('shake')
-                this.$refs.heart.classList.add('tada')
 
                 let text = ''
                 axios.post('/ajax/subscriber/new',

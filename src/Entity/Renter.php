@@ -476,7 +476,7 @@ class Renter
     }
 
 
-    public function getArrayParam($array = ['id','name','link','logo','floor','image']){
+    public function getArrayParam($array = ['id','name','link','logo','floor','image','vk','facebook','instagram']){
 
         $array_param = [];
 
@@ -489,7 +489,7 @@ class Renter
 
         $array_param['description'] = str_replace(array("\r\n", "\r", "\n"), '',  $this->getDescription());
 
-
+        $array_param['show'] = false;
         $array_param['departments'] = [];
         $array_param['departments_id'] = [];
         foreach ($departments as $department){

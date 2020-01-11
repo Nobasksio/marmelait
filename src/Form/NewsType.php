@@ -24,6 +24,7 @@ class NewsType extends AbstractType
             ->add('short_description',TextareaType::class)
             ->add('description',TextareaType::class)
             ->add('date',TextType::class)
+            ->add('preview',FileType::class)
             ->add('image',FileType::class)
             ->add('instagram')
             ->add('vk')

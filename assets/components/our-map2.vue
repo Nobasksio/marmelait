@@ -1,41 +1,35 @@
 <template >
-    <div class="row_my map" ref="'comp'">
-        <bread-crumbs
-                level_name="null"
-                level_link="null"
-                page_name="Карта этажей"
-        >
-        </bread-crumbs >
+    <div class="row_my map" >
+        <!--<bread-crumbs-->
+        <!--level_name="null"-->
+        <!--level_link="null"-->
+        <!--page_name="Карта этажей"-->
+        <!--&gt;-->
+        <!--</bread-crumbs >-->
         <div class="wa map" >
+            <div class="container " >
+                <div class="row justify-content-end" >
+                    <div class="btn-group pb-3 " role="group" aria-label="Basic example" >
+                        <b-button
+                                squared
+                                variant="outline-secondary"
+                                class="department_button"
+                                :class="{ 'department_button_active': floor1}"
 
-            <div class="row_manage" >
-                <div class="card_on_map" v-show="show_card" id="card_brend" v-draggable v-if="drag" >
-                    <div class="close2 fr" @click="close_card" ></div >
-                    <div class="p-4 ofscroll2" >
-                        <div class="container-fluid text-center" >
-                            <img :src="'/uploads/file/'+active_renter.logo" alt="" class="logo_on_map img-fluid" >
-                        </div >
-                        <div class="h3 text-body pt-4" >
-                            {{ active_renter.name}}
-                        </div >
-                        <div class="h4 text-body" >
-                            {{ active_floor}} этаж
-                        </div >
-                        <div class="h6 text-body" v-if="active_renter.map_place==''">
-                            Этот арендатор пока не отмечен на карте
-                        </div >
-
-                        <div class="descr_part text-body" >
-                            <span v-html="active_renter.description" ></span >
-                        </div >
-                    </div >
-                    <div class="more_on_map" >
-                        <router-link :to="'/renter/'+active_renter.id" class='block_href' id="link" >
-                            ПОДРОБНЕЕ
-                        </router-link >
+                                @click="show1" >1
+                            этаж
+                        </b-button >
+                        <b-button squared
+                                  variant="outline-secondary"
+                                  class="department_button"
+                                  :class="{ 'department_button_active': floor2}" @click="show2" >2
+                            этаж
+                        </b-button >
                     </div >
                 </div >
-                <div class="card_on_map" v-show="show_card"  v-else >
+            </div >
+            <div class="row_manage" >
+                <div class="card_on_map" v-show="show_card" id="card_brend" v-draggable >
                     <div class="close2 fr" @click="close_card" ></div >
                     <div class="p-4 ofscroll2" >
                         <div class="container-fluid text-center" >
@@ -46,9 +40,6 @@
                         </div >
                         <div class="h4 text-body" >
                             {{ active_floor}} этаж
-                        </div >
-                        <div class="h6 text-body" v-if="active_renter.map_place==''">
-                            Этот арендатор пока не отмечен на карте
                         </div >
 
                         <div class="descr_part text-body" >
@@ -64,12 +55,10 @@
             </div >
             <div class="help" ></div >
 
-            <div class="container-fluid px-0 bg-yellow" >
+            <div class="container-fluid px-0" >
                 <div class="container px-5 py-5 ofh" v-show="floor0" >
                     <svg version="1.1" id="floor0" ref="floor0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                          viewBox="0 0 827.1 625.1" style="enable-background:new 0 0 827.1 625.1;" xml:space="preserve">
-
-
 
                         <polygon class="st0" points="761.2,393.7 761.2,232.2 732,232.2 732,72.7 578.4,72.7 578.4,50 250,50 250,0 48.5,0 48.5,202.8
                             0,202.8 0,428.5 48.5,428.5 48.5,625.1 250,625.1 250,576.7 767.6,576.7 767.6,550.1 827.1,550.1 827.1,393.7 	"/>
@@ -101,295 +90,449 @@
 
                 >
                     <div >
-                        <!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-                        <svg version="1.1" ref="floor1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                         viewBox="0 0 959.7 625.1" style="enable-background:new 0 0 959.7 625.1;" xml:space="preserve">
+                        <svg xmlns="http://www.w3.org/2000/svg" ref="floor1" viewBox="0 0 1202.6 552.1" >
 
-                    <polygon class="st0" points="898.4,453.5 891.3,453.4 891.2,408.6 711.4,50 250,50 250,0 0,0 0,625.1 250,625.1 250,576.7
-                        959.7,576.7 "/>
+                            <title >logoРесурс 1</title >
 
-                        <g>
-                    <polygon class="st1" points="889.1,468.4 876.3,468.4 876.2,412.2 702.1,65 235,65 235,15 15,15 15,610.1 235,610.1 235,561.7
-                        935.5,561.7 "/>
-                             </g>
-                        <g>
-                    <polygon class="st2" ref='place5' @click="showOnMap(5)" points="744.4,174.7 723.5,133.1 681.6,133.1 702.5,174.7 "/>
-                             </g>
-                             <g>
-                    <polygon class="st2" ref='place6' @click="showOnMap(6)" points="722.1,213.4 763.9,213.4 749.5,184.7 707.6,184.7 "/>
-                             </g>
-                        <g>
-                    <polygon class="st2" ref='place7' @click="showOnMap(7)" points="814,312.9 769,223.4 727.1,223.4 772.2,312.9 "/>
-                             </g>
-                        <g>
-                    <polygon class="st2" ref='place8' @click="showOnMap(8)" points="819,322.9 777.3,322.9 795.3,358.6 837,358.6 "/>
-                             </g>
-                        <g>
-                    <polygon class="st2" ref='place9' @click="showOnMap(9)" points="800.3,368.7 820.4,408.4 862,408.4 842,368.7 "/>
-                             </g>
-                        <g>
-                    <rect x="852.7" y="418.4" class="st2" ref='place10' @click="showOnMap(10)" width="14.1" height="8.4"/>
-                             </g>
-                        <g>
-                    <rect x="828.5" y="418.4" class="st2" ref='place11' @click="showOnMap(11)" width="14.1" height="8.4"/>
-                             </g>
-                        <g>
-                    <rect x="842.2" y="460.5" class="st2" ref='place12' @click="showOnMap(12)" width="14.1" height="8.4"/>
-                             </g>
-                        <g>
-                    <rect x="818" y="460.5" class="st2" ref='place13' @click="showOnMap(13)" width="14.1" height="8.4"/>
-                             </g>
-                        <g>
-                    <rect x="739.4" y="426.8" class="st2" ref='place14' @click="showOnMap(14)" width="37.6" height="23.8"/>
-                             </g>
-                        <g>
-                    <rect x="739.4" y="361.5" class="st2" ref='place15' @click="showOnMap(15)" width="20" height="31.1"/>
-                             </g>
-                        <g>
-                    <rect x="739.4" y="327.7" class="st2" ref='place16' @click="showOnMap(16)" width="20" height="23.8"/>
-                             </g>
-                        <g>
-                    <rect x="787" y="426.8" class="st2" ref='place17' @click="showOnMap(17)" width="36.1" height="23.8"/>
-                             </g>
-                        <g>
-                    <rect x="693.3" y="426.8" class="st2" ref='place18' @click="showOnMap(18)" width="36.1" height="23.8"/>
-                             </g>
-                        <g>
-                    <polygon class="st2" ref='place19' @click="showOnMap(19)" points="917.5,551.7 756.4,551.7 756.4,480.2 881.4,480.2 "/>
-                             </g>
-                        <g>
-                    <rect x="693.2" y="385.6" class="st2" ref='place20' @click="showOnMap(20)" width="15.7" height="21.1"/>
-                             </g>
-                        <g>
-                    <rect x="693.3" y="479.9" class="st2" ref='place21' @click="showOnMap(21)" width="52.6" height="54.2"/>
-                             </g>
-                        <g>
-                    <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="648.9436" y1="514.7259" x2="682.2252" y2="479.0357">
-                        <stop  offset="0" style="stop-color:#DC5E15"/>
-                        <stop  offset="1" style="stop-color:#D0172C"/>
-                    </linearGradient>
-                    <rect x="647.9" y="480" class="st2" ref='place61' @click="showOnMap(61)"  width="35.3" height="33.8"/>
-                             </g>
-                        <g>
-                    <polygon class="st2" ref='place22' @click="showOnMap(22)" points="694.8,233 714.9,272.9 725.3,272.9 705.3,233 "/>
-                             </g>
-                        <g>
-                    <rect x="693.3" y="210" class="st2" ref='place23' @click="showOnMap(23)" width="11.9" height="13"/>
-                             </g>
-                        <g>
 
-                        <polygon class="st4" points="642.3,195.7 642.3,132.9 637.2,132.9 637.2,65 636.8,65 636.8,132.9 631.7,132.9 631.7,195.7
-                            636.8,195.7 636.8,405 631.7,405 631.7,467.9 636.8,467.9 636.8,561.7 637.2,561.7 637.2,467.9 642.3,467.9 642.3,405 637.2,405
-                            637.2,195.7 	"/>
-                         </g>
-                        <g>
-                        <path class="st4" d="M609.5,435.6h-20.6l4.6-4.6c0.2-0.2,0.3-0.4,0.3-0.6c0-0.2-0.1-0.5-0.3-0.6c-0.3-0.3-0.9-0.3-1.3,0l-6.1,6.1
-                            c-0.1,0.1-0.1,0.1-0.2,0.2l0,0.1l0,0c0,0,0,0,0,0l0,0.1c0,0,0,0,0,0c0,0.1,0,0.1,0,0.2c0,0.1,0,0.1,0,0.2c0,0,0,0,0,0l0,0.1
-                            c0,0,0,0,0,0.1c0,0,0,0,0,0.1l0,0.1c0.1,0.1,0.1,0.1,0.1,0.2l6.1,6.1c0.3,0.3,0.9,0.3,1.3,0c0.2-0.2,0.3-0.4,0.3-0.6
-                            c0-0.2-0.1-0.5-0.3-0.6l-4.6-4.6h20.6c0.5,0,0.9-0.4,0.9-0.9S609.9,435.6,609.5,435.6z"/>
-                             </g>
-                        <g>
-                        <path class="st4" d="M609.5,163.4h-20.6l4.6-4.6c0.2-0.2,0.3-0.4,0.3-0.6c0-0.2-0.1-0.5-0.3-0.6c-0.3-0.3-0.9-0.3-1.3,0l-6.1,6.1
-                            c-0.1,0.1-0.1,0.1-0.2,0.2l0,0.1l0,0c0,0,0,0,0,0l0,0.1c0,0,0,0,0,0c0,0.1,0,0.1,0,0.2c0,0.1,0,0.1,0,0.2c0,0,0,0,0,0l0,0.1
-                            c0,0,0,0,0,0.1c0,0,0,0,0,0.1l0,0.1c0.1,0.1,0.1,0.1,0.1,0.2l6.1,6.1c0.3,0.3,0.9,0.3,1.3,0c0.2-0.2,0.3-0.4,0.3-0.6
-                            c0-0.2-0.1-0.5-0.3-0.6l-4.6-4.6h20.6c0.5,0,0.9-0.4,0.9-0.9S609.9,163.4,609.5,163.4z"/>
-</g>
- <g>
-                    <rect x="662.1" y="257" class="st2" ref='place24' @click="showOnMap(24)" width="33.5" height="47.5"/>
-                             </g>
-                        <g>
-                    <rect x="204.8" y="75" class="st2" ref='place25' @click="showOnMap(25)" width="416.6" height="476.7"/>
-                             </g>
+                            <polygon class="cls-1"
+                                     points="1149.8 0.1 0 0.1 0 552.1 1149.8 552.1 1149.8 101.2 1202.6 101.2 1202.6 0.1 1149.8 0.1" />
 
-                    </svg>
+                            <g >
+                                <rect ref='place1' @click="showOnMap(1)"
+                                      class="cls-2" x="1149.8" y="81.9" width="16.5" height="19.3" />
+                            </g >
+                            <g >
+                                <rect ref='place2' @click="showOnMap(2)"
+                                      class="cls-2" x="1178.8" y="81.9" width="23.8" height="19.3" />
+                            </g >
+                            <g >
+                                <rect ref='place3' @click="showOnMap(3)"
+                                      class="cls-2" x="1112.8" y="0.2" width="37" height="40.3" />
+                            </g >
+                            <g >
+                                <rect ref='place4' @click="showOnMap(4)"
+                                      class="cls-2" x="1086.8" y="0.2" width="13.5" height="40.5" />
+                            </g >
+                            <g >
+                                <rect ref='place5' @click="showOnMap(5)"
+                                      class="cls-2" x="1086.8" y="53.1" width="13.5" height="48" />
+                            </g >
+                            <g >
+                                <rect ref='place6' @click="showOnMap(6)"
+                                      class="cls-2" x="1042.4" y="0.2" width="31.9" height="40.2" />
+                            </g >
+                            <g >
+                                <rect ref='place7' @click="showOnMap(7)"
+                                      class="cls-2" x="1042.4" y="52.8" width="31.9" height="48.3" />
+                            </g >
+                            <g >
+                                <rect ref='place8' @click="showOnMap(8)"
+                                      class="cls-2" x="979.1" y="113.5" width="50.8" height="48.3" />
+                            </g >
+                            <g >
+                                <rect ref='place9' @click="showOnMap(9)"
+                                      class="cls-2" x="1042.4" y="113.6" width="107.4" height="165.6" />
+                            </g >
+                            <g >
+                                <rect ref='place10' @click="showOnMap(10)"
+                                      class="cls-2" x="1109.7" y="504.7" width="33" height="15.8" />
+                            </g >
+                            <g >
+                                <rect ref='place11' @click="showOnMap(11)"
+                                      class="cls-2" x="1042.4" y="452.2" width="18.5" height="51.4" />
+                            </g >
+                            <g >
+                                <rect ref='place12' @click="showOnMap(12)"
+                                      class="cls-2" x="1073.4" y="452.2" width="30.8" height="51.4" />
+                            </g >
+                            <g >
+                                <rect ref='place13' @click="showOnMap(13)"
+                                      class="cls-2" x="1042.4" y="291.8" width="18.5" height="51.4" />
+                            </g >
+                            <g >
+                                <rect ref='place14' @click="showOnMap(14)"
+                                      class="cls-2" x="1073.4" y="291.8" width="30.8" height="51.4" />
+                            </g >
+                            <g >
+                                <rect ref='place15' @click="showOnMap(15)"
+                                      class="cls-2" x="1042.4" y="403.9" width="61.8" height="36" />
+                            </g >
+                            <g >
+                                <rect ref='place16' @click="showOnMap(16)"
+                                      class="cls-2" x="1042.4" y="355.6" width="61.8" height="36" />
+                            </g >
+                            <g >
+                                <rect ref='place17' @click="showOnMap(17)"
+                                      class="cls-2" x="1066.1" y="172.9" width="41.3" height="21.9" />
+                            </g >
+                            <g >
+                                <rect ref='place18' @click="showOnMap(18)"
+                                      class="cls-2" x="1117" y="449.5" width="13.3" height="14.1" />
+                            </g >
+                            <g >
+                                <rect ref='place19' @click="showOnMap(19)"
+                                      class="cls-2" x="1135.6" y="449.5" width="14.2" height="14.1" />
+                            </g >
+                            <g >
+                                <rect ref='place20' @click="showOnMap(20)"
+                                      class="cls-2" x="1117" y="476.1" width="13.3" height="13.7" />
+                            </g >
+                            <g >
+                                <rect ref='place21' @click="showOnMap(21)"
+                                      class="cls-2" x="1135.5" y="476.1" width="14.3" height="13.7" />
+                            </g >
+                            <g >
+                                <rect ref='place22' @click="showOnMap(22)"
+                                      class="cls-2" x="829.7" y="290.3" width="66.9" height="26.3" />
+                            </g >
+                            <g >
+                                <rect ref='place23' @click="showOnMap(23)"
+                                      class="cls-2" x="465.7" y="445.8" width="34.5" height="66" />
+                            </g >
+                            <g >
+                                <rect ref='place24' @click="showOnMap(24)"
+                                      class="cls-2" x="330.7" y="445.8" width="86.5" height="106.3" />
+                            </g >
+                            <g >
+                                <rect ref='place25' @click="showOnMap(25)"
+                                      class="cls-2" x="182.4" y="445.8" width="135.8" height="106.3" />
+                            </g >
+                            <g >
+                                <rect ref='place26' @click="showOnMap(26)"
+                                      class="cls-2" x="512.7" y="445.8" width="33.3" height="106.3" />
+                            </g >
+                            <g >
+                                <rect ref='place27' @click="showOnMap(27)"
+                                      class="cls-2" x="558.5" y="445.8" width="141.6" height="106.3" />
+                            </g >
+                            <g >
+                                <rect ref='place28' @click="showOnMap(28)"
+                                      class="cls-2" y="445.8" width="169.9" height="106.3" />
+                            </g >
+                            <g >
+                                <rect ref='place29' @click="showOnMap(29)"
+                                      class="cls-2" x="429.7" y="445.8" width="23.5" height="29.9" />
+                            </g >
+                            <g >
+                                <rect ref='place30' @click="showOnMap(30)"
+                                      class="cls-2" x="429.7" y="524.4" width="23.5" height="27.7" />
+                            </g >
+                            <g >
+                                <rect ref='place31' @click="showOnMap(31)"
+                                      class="cls-2" x="429.7" y="488.2" width="23.5" height="9.8" />
+                            </g >
+                            <g >
+                                <rect ref='place32' @click="showOnMap(32)"
+                                      class="cls-2" x="429.7" y="502" width="23.5" height="9.8" />
+                            </g >
+                            <g >
+                                <rect ref='place33' @click="showOnMap(33)"
+                                      class="cls-2" x="35.2" y="416.2" width="35.9" height="15.6" />
+                            </g >
+                            <g >
+                                <rect ref='place34' @click="showOnMap(34)"
+                                      class="cls-2" x="179.7" y="416.2" width="35.9" height="15.6" />
+                            </g >
+                            <g >
+                                <rect ref='place35' @click="showOnMap(35)"
+                                      class="cls-2" x="227.7" y="416.2" width="35.9" height="15.6" />
+                            </g >
+                            <g >
+                                <rect ref='place36' @click="showOnMap(36)" class="cls-2" x="292.4" y="416.2"
+                                      width="35.9" height="15.6" />
+                            </g >
+                            <g >
+                                <rect ref='place37' @click="showOnMap(37)" class="cls-2" x="357.9" y="401.7"
+                                      width="35.9" height="15.6" />
+                            </g >
+                            <g >
+                                <rect ref='place38' @click="showOnMap(38)" class="cls-2" x="357.9" y="355.2"
+                                      width="35.9" height="15.6" />
+                            </g >
+                            <g >
+                                <rect ref='place39' @click="showOnMap(39)" class="cls-2" x="357.9" y="288.9"
+                                      width="35.9" height="15.6" />
+                            </g >
+                            <g >
+                                <rect ref='place40' @click="showOnMap(40)" class="cls-2" x="357.9" y="137.9"
+                                      width="35.9" height="15.6" />
+                            </g >
+                            <g >
+                                <rect ref='place41' @click="showOnMap(41)" class="cls-2" x="454.2" y="113.2"
+                                      width="35.9" height="15.6" />
+                            </g >
+                            <g >
+                                <rect ref='place42' @click="showOnMap(42)" class="cls-2" x="524.5" y="113.2"
+                                      width="35.9" height="15.6" />
+                            </g >
+                            <g >
+                                <rect ref='place43' @click="showOnMap(43)" class="cls-2" x="137.5" y="416.2"
+                                      width="10.6" height="15.6" />
+                            </g >
+                            <g >
+                                <rect ref='place44' @click="showOnMap(44)" class="cls-2" x="154.5" y="416.2"
+                                      width="10.6" height="15.6" />
+                            </g >
+                            <g >
+                                <rect ref='place45' @click="showOnMap(45)" class="cls-2" x="575.4" y="113.2"
+                                      width="10.6" height="15.6" />
+                            </g >
+                            <g >
+                                <rect ref='place46' @click="showOnMap(46)" class="cls-2" x="592.4" y="113.2"
+                                      width="10.6" height="15.6" />
+                            </g >
+                            <g >
+                                <rect ref='place47' @click="showOnMap(47)" class="cls-2" x="466.7" y="75.3" width="39.6"
+                                      height="29.5" />
+                            </g >
+                            <g >
+                                <rect ref='place48' @click="showOnMap(48)" class="cls-2" x="607.8" width="49.8"
+                                      height="104.7" />
+                            </g >
+                            <g >
+                                <rect ref='place49' @click="showOnMap(49)" class="cls-2" x="518.8" width="76.5"
+                                      height="104.7" />
+                            </g >
+                            <g >
+                                <polygon ref='place50' @click="showOnMap(50)" class="cls-2"
+                                         points="504.3 210.9 491.8 210.9 491.8 210.8 491.8 198.3 491.8 137.4 423.8 137.4 423.8 339.2 579.4 339.2 579.4 210.8 504.3 210.8 504.3 210.9" />
+                            </g >
+                            <g >
+                                <rect ref='place51' @click="showOnMap(51)" class="cls-2" x="504.3" y="137.4" width="75"
+                                      height="60.9" />
+                            </g >
+                            <g >
+                                <rect ref='place52' @click="showOnMap(52)" class="cls-2" x="591.7" y="137.4" width="75"
+                                      height="55.8" />
+                            </g >
+                            <g >
+                                <rect ref='place53' @click="showOnMap(53)" class="cls-2" x="591.7" y="254.1" width="75"
+                                      height="44.3" />
+                            </g >
+                            <g >
+                                <rect ref='place54' @click="showOnMap(54)" class="cls-2" x="591.7" y="351.7" width="75"
+                                      height="50.4" />
+                            </g >
+                            <g >
+                                <rect ref='place55' @click="showOnMap(55)" class="cls-2" x="591.7" y="310.9" width="75"
+                                      height="28.3" />
+                            </g >
+                            <g >
+                                <rect ref='place56' @click="showOnMap(56)" class="cls-2" x="591.7" y="205.6" width="75"
+                                      height="36" />
+                            </g >
+                            <g >
+                                <rect ref='place57' @click="showOnMap(57)" class="cls-2" x="508.7" y="351.7"
+                                      width="36.9" height="50.4" />
+                            </g >
+                            <g >
+                                <rect ref='place58' @click="showOnMap(58)" class="cls-2" x="558.2" y="351.7"
+                                      width="21.2" height="50.4" />
+                            </g >
+                            <g >
+                                <rect ref='place59' @click="showOnMap(59)" class="cls-2" x="423.8" y="351.7"
+                                      width="72.4" height="50.4" />
+                            </g >
+                            <g >
+                                <polygon ref='place60' @click="showOnMap(60)" class="cls-2"
+                                         points="191.3 0.1 191.3 0.2 0 0.2 0 251 328 251 328 104.7 454.3 104.7 454.3 0.1 191.3 0.1" />
+                            </g >
+                            <g >
+                                <rect ref='place61' @click="showOnMap(61)" class="cls-2" y="263.5" width="165"
+                                      height="138.2" />
+                            </g >
+                            <g >
+                                <rect ref='place62' @click="showOnMap(62)" class="cls-2" x="177.5" y="355.2"
+                                      width="42.7" height="46.5" />
+                            </g >
+                            <g >
+                                <polygon ref='place63' @click="showOnMap(63)" class="cls-2"
+                                         points="328 263.5 177.5 263.5 177.5 342.7 232.7 342.7 232.7 401.7 270.3 401.7 270.3 342.7 328 342.7 328 263.5" />
+                            </g >
+                            <g >
+                                <rect ref='place64' @click="showOnMap(64)" class="cls-2" x="282.8" y="355.2"
+                                      width="45.2" height="46.5" />
+                            </g >
+                        </svg >
                     </div >
+
 
                 </div >
                 <div class="container px-5 py-5 ofh" v-show="floor2" >
-                    <svg version="1.1" ref="floor2" id="floor2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	                viewBox="0 0 838.2 526.7" style="enable-background:new 0 0 838.2 526.7;" xml:space="preserve">
+                    <svg xmlns="http://www.w3.org/2000/svg" ref="floor2" viewBox="0 0 1149.9 552.3" >
+                        <title >logoРесурс 1</title >
 
+                        <g id="Слой_1-2" data-name="Слой 1" >
+                            <rect ref='place65' @click="showOnMap(65)" class="cls-1" y="0.1" width="1149.8"
+                                  height="552" />
+                        </g >
+                        <g >
 
+                            <rect ref='place66' @click="showOnMap(66)" class="cls-2" x="1040.4" y="398.1" width="109.4"
+                                  height="153.9" />
+                        </g >
+                        <g >
+                            <rect ref='place67' @click="showOnMap(67)" class="cls-2" x="658" y="0.1" width="369.7"
+                                  height="552.2" />
+                        </g >
+                        <g >
+                            <rect ref='place68' @click="showOnMap(68)" class="cls-2" x="518.1" width="127.4"
+                                  height="139" />
+                        </g >
+                        <g >
+                            <rect ref='place69' @click="showOnMap(69)" class="cls-3" x="481.1" y="75.2" width="24.5"
+                                  height="32.2" />
+                        </g >
+                        <g >
+                            <rect ref='place70' @click="showOnMap(70)" class="cls-2" x="395" width="62.4"
+                                  height="107.3" />
+                        </g >
+                        <g >
+                            <rect ref='place71' @click="showOnMap(71)" class="cls-2" x="319.9" width="62.4"
+                                  height="107.3" />
+                        </g >
+                        <g >
+                            <rect ref='place72' @click="showOnMap(72)" class="cls-2" x="238" width="69.6"
+                                  height="107.3" />
+                        </g >
+                        <g >
+                            <polygon ref='place73' @click="showOnMap(73)" class="cls-2"
+                                     points="156.1 0 156.1 27.6 192.5 27.6 192.5 107.3 225.7 107.3 225.7 0 156.1 0" />
+                        </g >
+                        <g >
+                            <rect ref='place74' @click="showOnMap(74)" class="cls-2" x="156.1" y="39.9" width="23.7"
+                                  height="67.4" />
+                        </g >
+                        <g >
+                            <rect ref='place75' @click="showOnMap(75)" class="cls-2" y="0.1" width="143.4"
+                                  height="107.2" />
+                        </g >
+                        <g >
+                            <rect ref='place76' @click="showOnMap(76)" class="cls-2" x="129.7" y="126.5" width="8.5"
+                                  height="8.5" />
+                        </g >
+                        <g >
+                            <rect ref='place77' @click="showOnMap(77)" class="cls-2" x="164.7" y="126.5" width="8.5"
+                                  height="8.5" />
+                        </g >
+                        <g >
+                            <rect ref='place78' @click="showOnMap(78)" class="cls-2" y="119.8" width="30"
+                                  height="19.4" />
+                        </g >
+                        <g >
+                            <rect ref='place79' @click="showOnMap(79)" class="cls-2" y="151.6" width="30"
+                                  height="19.4" />
+                        </g >
+                        <g >
+                            <rect ref='place80' @click="showOnMap(80)" class="cls-2" y="183.4" width="30"
+                                  height="19.4" />
+                        </g >
+                        <g >
+                            <rect ref='place81' @click="showOnMap(81)" class="cls-2" y="215.3" width="30"
+                                  height="19.4" />
+                        </g >
+                        <g >
+                            <rect ref='place82' @click="showOnMap(82)" class="cls-2" y="247.1" width="30"
+                                  height="19.4" />
+                        </g >
+                        <g >
+                            <rect ref='place83' @click="showOnMap(83)" class="cls-2" x="42.3" y="151.4" width="55.7"
+                                  height="115.1" />
+                        </g >
+                        <g >
+                            <polygon ref='place84' @click="showOnMap(84)" class="cls-2"
+                                     points="277.4 151.4 277.4 170.2 277.4 182.7 264.9 182.7 155.1 182.7 142.6 182.7 142.6 170.2 142.6 151.4 110.5 151.4 110.5 266.5 307.6 266.5 307.6 151.4 277.4 151.4" />
+                        </g >
+                        <g >
+                            <rect ref='place85' @click="showOnMap(85)" class="cls-2" x="155.1" y="151.4" width="109.8"
+                                  height="18.8" />
+                        </g >
+                        <g >
+                            <rect ref='place86' @click="showOnMap(86)" class="cls-2" y="278.9" width="307.6"
+                                  height="273.1" />
+                        </g >
+                        <g >
+                            <rect ref='place87' @click="showOnMap(87)" class="cls-2" x="320.1" y="434.5" width="81.2"
+                                  height="117.7" />
+                        </g >
+                        <g >
+                            <rect ref='place88' @click="showOnMap(88)" class="cls-2" x="336.5" y="153.6" width="12.6"
+                                  height="12.6" />
+                        </g >
+                        <g >
+                            <rect ref='place89' @click="showOnMap(89)" class="cls-2" x="404" y="153.6" width="12.6"
+                                  height="12.6" />
+                        </g >
+                        <g >
+                            <rect ref='place90' @click="showOnMap(90)" class="cls-2" x="336.5" y="205.2" width="12.6"
+                                  height="12.6" />
+                        </g >
+                        <g >
+                            <rect ref='place91' @click="showOnMap(91)" class="cls-2" x="404" y="205.2" width="12.6"
+                                  height="12.6" />
+                        </g >
+                        <g >
+                            <rect ref='place92' @click="showOnMap(92)" class="cls-2" x="336.5" y="245.2" width="12.6"
+                                  height="12.6" />
+                        </g >
+                        <g >
+                            <rect ref='place93' @click="showOnMap(93)" class="cls-2" x="404" y="245.2" width="12.6"
+                                  height="12.6" />
+                        </g >
+                        <g >
+                            <polygon ref='place94' @click="showOnMap(94)" class="cls-2"
+                                     points="497.1 151.5 497.1 344.9 433.2 344.9 433.2 497.2 507 497.2 507 552.3 645.5 552.3 645.5 151.5 497.1 151.5" />
+                        </g >
+                        <g >
+                            <rect ref='place95' @click="showOnMap(95)" class="cls-2" x="433.7" y="215.2" width="50.9"
+                                  height="23.6" />
+                        </g >
+                        <g >
+                            <polygon ref='place96' @click="showOnMap(96)" class="cls-2"
+                                     points="484.7 202.7 484.7 151.5 444.1 151.5 433.7 164.4 433.7 202.7 484.7 202.7" />
+                        </g >
+                        <g >
+                            <rect ref='place97' @click="showOnMap(97)" class="cls-2" x="433.7" y="287" width="50.9"
+                                  height="45.4" />
+                        </g >
+                        <g >
+                            <rect ref='place98' @click="showOnMap(98)" class="cls-2" x="433.7" y="251.3" width="50.9"
+                                  height="23.2" />
+                        </g >
+                        <g >
+                            <polygon ref='place99' @click="showOnMap(99)" class="cls-2"
+                                     points="1114.1 0.1 1114.1 90.6 1040.4 90.6 1040.4 385.7 1149.8 385.7 1149.8 0.1 1114.1 0.1" />
+                        </g >
+                        <g >
+                            <rect ref='place100' @click="showOnMap(100)" class="cls-2" x="1040.4" width="61.5"
+                                  height="78.2" />
+                        </g >
+                        <g >
+                            <rect ref='place101' @click="showOnMap(101)" class="cls-2" x="1110.1" y="431.6" width="39.8"
+                                  height="15.7" />
+                        </g >
+                        <g >
+                            <rect ref='place102' @click="showOnMap(102)" class="cls-2" x="1110.1" y="460.4" width="39.8"
+                                  height="18" />
+                        </g >
+                        <g >
+                            <rect ref='place103' @click="showOnMap(103)" class="cls-2" x="1097.2" y="491.4" width="52.6"
+                                  height="60.7" />
+                        </g >
 
-                        <polygon class="st0" points="782.5,414.9 782.5,346.9 763.7,346.9 589.8,0 113.5,0 0,0 0,526.5 113.5,526.7 838.2,526.7 	"/>
-
-                        <g>
-                        <polygon class="st1" points="767.5,418.4 767.5,361.9 754.5,361.9 580.5,15 113.5,15 15,15 15,511.6 113.5,511.7 814,511.7 	"/>
-                        </g>
-                        <g>
-                        <polygon class="st2" id='q26' ref='place26' @click="showOnMap(26)" points="795.9,501.7 634.8,501.7 634.8,429.3 759.8,429.3 	"/>
-                        </g>
-                            <g>
-                        <rect x="686.4" y="373.4" id='q27'  ref='place27' @click="showOnMap(27)"  class="st2" width="69.5" height="45.9"/>
-                             </g>
-                        <g>
-                        <polygon class="st2" id='q28' ref='place28' @click="showOnMap(28)" points="692.4,262.8 647.4,173.4 605.5,173.4 650.6,262.8 	"/>
-                            </g>
-                        <g>
-                        <polygon class="st2" id='q29' ref='place29' @click="showOnMap(29)" points="622.9,124.6 602,83.1 560,83.1 581,124.6 	"/>
-                            </g>
-                        <g>
-                        <polygon class="st2" id='q30' ref='place30' @click="showOnMap(30)" points="697.4,272.8 655.7,272.8 673.7,308.6 715.4,308.6 	"/>
-                            </g>
-                        <g>
-                        <polygon class="st2" id='q31' ref='place31' @click="showOnMap(31)" points="678.8,318.6 698.8,358.4 740.5,358.4 720.5,318.6 	"/>
-                        </g>
-                         <g>
-                        <polygon class="st2" id='q32' ref='place32' @click="showOnMap(32)"points="600.5,163.4 642.4,163.4 627.9,134.6 586,134.6 	"/>
-                            </g>
-                        <g>
-
-                        <rect x="571.6" y="401.1" id='q33' class="st2" ref='place33' @click="showOnMap(33)" width="52.5" height="100.6"/>
-                             </g>
-                        <g>
-                        <rect x="464.8" y="401.1" id='q34' class="st2" ref='place34' @click="showOnMap(34)" width="83" height="100.6"/>
-                             </g>
-                        <g>
-                        <rect x="384.2" y="401.1" id='q35' class="st2" ref='place35' @click="showOnMap(35)" width="70.4" height="100.6"/>
-                             </g>
-                        <g>
-                        <rect x="266.5" y="401.1" id='q36' class="st2" ref='place36' @click="showOnMap(36)" width="106.8" height="79.4"/>
-                             </g>
-                        <g>
-                        <rect x="84" y="401.1" id='q37' class="st2" ref='place37' @click="showOnMap(37)" width="172" height="100.6"/>
-                             </g>
-                        <g>
-                        <rect x="84" y="375.5" id='q38' class="st2" ref='place38' @click="showOnMap(38)" width="44.4" height="14.9"/>
-                             </g>
-                        <g>
-                        <rect x="551.4" y="291.8" id='q39' class="st2" ref='place39' @click="showOnMap(39)" width="18.3" height="18.3"/>
-                             </g>
-                        <g>
-                        <rect x="551.4" y="262.1" id='q40' class="st2" ref='place40' @click="showOnMap(40)" width="18.3" height="18.3"/>
-                             </g>
-                        <g>
-                        <rect x="551.4" y="178.6" id='q41' class="st2" ref='place41' @click="showOnMap(41)" width="31.1" height="18.3"/>
-                             </g>
-                        <g>
-                        <rect x="461.6" y="152" class="st2" id='q42' ref='place42' @click="showOnMap(42)" width="69" height="41.6"/>
-                             </g>
-                        <g>
-                        <polygon class="st2" ref='place43' id='q43' @click="showOnMap(43)" points="331.7,152 331.7,246.5 379.2,246.5 379.2,203.6 379.2,193.5 379.2,152 	"/>
-                         </g>
-                        <g>
-                            <rect x="389.2" y="152" class="st2" id='q44' ref='place44' @click="showOnMap(44)" width="62.4" height="41.6"/>
-                            </g>
-                        <g>
-                        <rect x="389.2" y="326.2" class="st2" id='q45' ref='place45' @click="showOnMap(45)" width="141.5" height="32.1"/>
-                             </g>
-                        <g>
-                        <polygon class="st2" ref='place46' id='q46' @click="showOnMap(46)" points="530.6,203.6 389.2,203.6 389.2,246.5 389.2,256.5 389.2,316.2 530.6,316.2 	"/>
-                         </g>
-                        <g>
-                            <rect x="190.7" y="230.8" class="st2" id='q47' ref='place47' @click="showOnMap(47)" width="65.3" height="17.4"/>
-                             </g>
-                        <g>
-                            <rect x="221" y="151.9" class="st2" id='q48' ref='place48' @click="showOnMap(48)" width="35" height="68.9"/>
-                             </g>
-                        <g>
-                            <rect x="190.7" y="258.2" class="st2" id='q49' ref='place49' @click="showOnMap(49)" width="65.3" height="58"/>
-                             </g>
-                        <g>
-                            <rect x="190.7" y="201.7" class="st2" id='q50' ref='place50' @click="showOnMap(50)" width="20.2" height="19.1"/>
-                             </g>
-                        <g>
-                            <rect x="190.7" y="326.2" class="st2" id='q51' ref='place51' @click="showOnMap(51)" width="65.3" height="32.1"/>
-                             </g>
-                        <g>
-                            <rect x="190.7" y="151.9" class="st2" id='q52' ref='place52' @click="showOnMap(52)" width="20.2" height="39.8"/>
-                         </g>
-                        <g>
-                        <rect x="449.5" y="78.5" class="st2" id='q53' ref='place53' @click="showOnMap(53)" width="54.7" height="35.6"/>
-                             </g>
-                        <g>
-                        <rect x="514.2" y="78.5" class="st2" id='q54' ref='place54' @click="showOnMap(54)" width="23" height="35.6"/>
-                             </g>
-                        <g>
-                        <polygon class="st2" ref='place55' id='q55' @click="showOnMap(55)" points="439.5,84.4 439.5,76 439.5,39.6 384,39.6 384,114.2 439.5,114.2 	"/>
-                             </g>
-                        <g>
-                        <polygon class="st2" ref='place56' id='q56' @click="showOnMap(56)" points="256.4,78.5 256.4,68.5 256.4,24.9 206.4,24.9 206.4,114.2 256.4,114.2 	"/>
-                             </g>
-                        <g>
-                        <polygon class="st2" ref='place57' id='q57' @click="showOnMap(57)" points="364.5,84.4 364.5,76 364.5,39.6 266,39.6 266,114.2 364.5,114.2 	"/>
-                             </g>
-                        <g>
-                        <rect x="139.6" y="24.9" class="st2" id='q58' ref='place58' @click="showOnMap(58)" width="56.8" height="36.4"/>
-                             </g>
-                        <g>
-                        <rect x="26.8" y="134.3" class="st2" id='q59' ref='place59' @click="showOnMap(59)" width="126.4" height="224"/>
-                         </g>
-                        <g>
-                                <polygon class="st3" points="379.2,326.2 379.2,316.2 379.2,256.5 331.7,256.5 321.7,256.5 321.7,246.5 321.7,152 267.3,152
-                                    267.3,358.3 379.2,358.3 			"/>
-                             </g>
-                        <g>
-                                <polygon class="st3" points="139.6,71.3 139.6,114.2 196.4,114.2 196.4,78.5 196.4,71.3 			"/>
-                             </g>
-                        <g>
-                            <rect x="429.3" y="124.6" class="st3" width="31.8" height="16.4"/>
-                             </g>
-
-
-                    </svg>
+                    </svg >
 
                 </div >
 
-                <div class="container" >
-
-                    <div class="d-flex justify-content-start my-3 align-items-end" >
-
-                        <button class="btn btn-light rounded-circle zoom1 mr-3" type="submit" @click="zoomMore" >+
-                        </button >
-
-                        <button class="btn btn-light rounded-circle zoom2" type="submit" @click="zoomless" >-</button >
-
-                        <!--<div class="zoom" onclick="zoom(1)" >+</div >-->
-                        <!--<div class="zoom" onclick="zoom(0)" >-</div >-->
-                    </div >
-                    <div class="btn-group pb-3 " role="group" aria-label="Basic example" >
-                        <button type="button" class="btn rounded-0 btn-180"
-                                :class="{ 'btn-danger bg-red-grad ': floor0,'btn-light': !floor0 }" @click="show0" >
-                            Цоколь
-                        </button >
-                        <button type="button" class="btn rounded-0 btn-180"
-                                :class="{ 'bg-red-grad btn-danger': floor1,'btn-light': !floor1 }" @click="show1" >1
-                            этаж
-                        </button >
-                        <button type="button" class="btn rounded-0 btn-180"
-                                :class="{ 'bg-red-grad btn-danger': floor2,'btn-light': !floor2 }" @click="show2" >2
-                            этаж
-                        </button >
-                    </div >
-                    <div class="contact_card pb-3" >
-                        <div class="row py-4 px-5" >
-                            <div class="col text-secondary" >
-                                <div class="py-2 cursor-pointer"
-                                     :class="{ 'active_renter': active_renter.id == renter.id }"
-                                     v-for="renter in renter_active_floor.slice(0,num_row)"
-                                     @click="showRenter(renter)" >
-                                    {{renter.name.toUpperCase()}}
-                                </div >
-
-                            </div >
-                            <div class="col text-secondary " >
-                                <div class="py-2 cursor-pointer"
-                                     :class="{ 'active_renter': active_renter.id ==  renter.id }"
-                                     v-for="renter in renter_active_floor.slice(num_row,num_row*2)"
-                                     @click="showRenter(renter)" >{{renter.name.toUpperCase()}}
-                                </div >
-
-                            </div >
-                            <div class="col text-secondary" >
-                                <div class="py-2 cursor-pointer"
-                                     :class="{ 'active_renter': active_renter.id ==  renter.id }"
-                                     v-for="renter in renter_active_floor.slice(num_row*2,num_row*3)"
-                                     @click="showRenter(renter)" >{{renter.name.toUpperCase()}}
-                                </div >
-
-                            </div >
-                        </div >
-                    </div >
+            </div >
+            <div class="container" >
+                <div class="d-flex justify-content-start my-3 align-items-end" >
+                    <button class="btn btn-light rounded-circle zoom1 mr-3" type="submit" @click="zoomMore" >+
+                    </button >
+                    <button class="btn btn-light rounded-circle zoom2" type="submit" @click="zoomless" >-</button >
+                    <!--<div class="zoom" onclick="zoom(1)" >+</div >-->
+                    <!--<div class="zoom" onclick="zoom(0)" >-</div >-->
                 </div >
             </div >
 
@@ -408,10 +551,24 @@
         directives: {
             Draggable,
         },
+        metaInfo() {
+            return {
+                meta: [
+                    {charset: 'utf-8'},
+                    {name: 'viewport', content: 'width=device-width, initial-scale=1'},
+                    {
+                        name: 'description',
+                        content: 'Торговый центр МАРМЕЛАЙТ г. Северск. Пространство для шопинга, отдыха и общения, уникальные бренды и атмосфера уютная атмосфера.'
+                    }
+                ],
+                title: 'Карта Торговый центр МАРМЕЛАЙТ г. Северск',
+            }
+        },
         data() {
             return {
                 renters: this.app_state.renters,
                 active_floor: this.$route.params.floor,
+                place_id: this.$route.params.map_place,
                 self: this,
                 floor0: false,
                 floor1: false,
@@ -419,7 +576,6 @@
                 csale: 1,
                 name: 'floor1',
                 show_card: false,
-                place_id: this.$route.params.map_place,
                 active_place: 'place' + this.$route.params.map_place,
                 active_renter: {
                     name: 'some name',
@@ -583,40 +739,53 @@
 </script >
 
 <style scoped >
-    .st0 {
-        fill: #FFFFFF;
+
+    .cls-1 {
+        fill: #e0f7ee;
     }
 
-    .st1 {
-        fill: none;
-        stroke: #F9C606;
-        stroke-width: 4;
-        stroke-miterlimit: 10;
+    .cls-2 {
+        fill: #89e3c5;
     }
 
-    .st2 {
-        fill: #fff;
-        stroke: #D0172C;
-        stroke-width: 2;
-        stroke-miterlimit: 10;
+    .cls-3 {
+        fill: #e5d0d6;
     }
 
-    .st3 {
-        fill: url(#SVGID_1_);
-        stroke: #D0172C;
-        stroke-width: 2;
-        stroke-miterlimit: 10;
-    }
+    /*.st0 {*/
+    /*fill: #FFFFFF;*/
+    /*}*/
 
-    .st4 {
-        fill-rule: evenodd;
-        clip-rule: evenodd;
-        fill: #F9C606;
-    }
+    /*.st1 {*/
+    /*fill: none;*/
+    /*stroke: #F9C606;*/
+    /*stroke-width: 4;*/
+    /*stroke-miterlimit: 10;*/
+    /*}*/
 
-    .st0 {
-        fill: #FFFFFF;
-    }
+    /*.st2 {*/
+    /*fill: #fff;*/
+    /*stroke: #D0172C;*/
+    /*stroke-width: 2;*/
+    /*stroke-miterlimit: 10;*/
+    /*}*/
+
+    /*.st3 {*/
+    /*fill: url(#SVGID_1_);*/
+    /*stroke: #D0172C;*/
+    /*stroke-width: 2;*/
+    /*stroke-miterlimit: 10;*/
+    /*}*/
+
+    /*.st4 {*/
+    /*fill-rule: evenodd;*/
+    /*clip-rule: evenodd;*/
+    /*fill: #F9C606;*/
+    /*}*/
+
+    /*.st0 {*/
+    /*fill: #FFFFFF;*/
+    /*}*/
 
     /*.st1 {*/
     /*fill: none;*/
@@ -680,14 +849,14 @@
         cursor: pointer;
     }
 
-    g:hover .st2 {
-        fill: #D0172C;
-        stroke: #D0172C;
+    g:hover .cls-2 {
+        fill: #e5d0d6;
+        stroke: #e5d0d6;
     }
 
     .active_place {
-        fill: #D0172C;
-        stroke: #D0172C;
+        fill: #e5d0d6;
+        stroke: #e5d0d6;
     }
 
     .logo_on_map {

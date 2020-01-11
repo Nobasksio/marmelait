@@ -56,16 +56,10 @@
                                   <div class="form-group" >
                                       <label >Название Акции</label >
                                       {{ form_widget(form.name, {'attr': {'class': 'form-control pull-right', 'placeholder':'Заголовок'}}) }}
-                                         <p class="help-block">До 32 символов</p>
                                   </div >
-                                   <div class="form-group">
-                                      <label>Короткое описание</label>
-                                      {{ form_widget(form.short_description, {'attr': {'rows': '3','cols':'80'} }) }}
-                                        <p class="help-block">До 240 символов</p>
-                                  </div>
                                   <div class="form-group">
                                       <label>Описание</label>
-                                      {{ form_widget(form.description, {'attr': {'rows': '10','cols':'80'},'id':'editor2' }) }}
+                                      {{ form_widget(form.description, {'attr': {'rows': '10','cols':'80'},'id':'editor1' }) }}
 
                                   </div>
                                   <div class="form-group">
@@ -75,26 +69,26 @@
                                   </div>
                                   <div class="form-group">
                                       <label for="exampleInputFile">Превью</label>
-                                      {{ form_widget(form.preview, {'attr': {'id':'preview'}}) }}
+                                      {{ form_widget(form.photo_small_upload, {'attr': {'id':'photo_small','class':'hide'}}) }}
                                         {% if action is defined %}
                                         <div id="photo_small_upload">
-                                            <img src="/uploads/file/{{ action.preview }}" class="preview_upload">
+                                            <img src="/uploads/file/{{ action.photoSmall }}" class="preview_upload">
                                         </div>
-                                        <div type="submit" class="btn btn-info " onclick="update('preview')">Заменить</div >
+                                        <div type="submit" class="btn btn-info " onclick="update('photo_small')">Заменить</div >
                                         {% endif %}
                                       <p class="help-block">Минимум 260х260 px. Должна быть квадратной. иначе будет ужасно смотреться</p>
                                   </div>
                                   <div class="form-group">
-                                      <label for="exampleInputFile">Картинка акции</label>
-                                      {{ form_widget(form.image, {'attr': {'id':'image'}}) }}
+                                      <label for="exampleInputFile">Картинка на деталью страницу</label>
+                                      {{ form_widget(form.photo_big_upload, {'attr': {'id':'photo_big','class':'hide'}}) }}
                                         {% if action is defined %}
                                         <div id="photo_big_upload">
-                                            <img src="/uploads/file/{{ action.image }}" class="preview_upload">
+                                            <img src="/uploads/file/{{ action.photoBig }}" class="preview_upload">
 
                                         </div>
-                                        <div type="submit" class="btn btn-info " onclick="update('image')">Заменить</div >
+                                        <div type="submit" class="btn btn-info " onclick="update('photo_big')">Заменить</div >
                                         {% endif %}
-                                       <p class="help-block">ширина 500px высота от 700px. рабочая зона 500х500px сверху. <a href="{{ asset('img/500x700px.jpg') }}" target="_blank">Скачать пример</a></p>
+                                      <p class="help-block">Минимум 600х600 px.</p>
                                   </div>
 
                                   <div class="form-group" >
@@ -152,8 +146,7 @@
           <script>
               $(function () {
                   //Date picker
-
-                  CKEDITOR.replace('editor2')
+                  CKEDITOR.replace('editor1')
                   $('#datepicker').datepicker({
                       autoclose: true
                   })

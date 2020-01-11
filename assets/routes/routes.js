@@ -7,7 +7,7 @@ import contacts from '../components/contacts'
 import our_map from '../components/our-map'
 import our_map2 from '../components/our-map2'
 import plainPage from '../pages/other/plain-page'
-import renterPage from '../pages/other/renter-page'
+import renterPage from '../components/deparment-page'
 
 export const routes = [
     {path: '/department', component: Department },
@@ -15,7 +15,7 @@ export const routes = [
     {path: '/', component: mainPage },
     {path: '/news', component: newsActionsPage },
     {path: '/news/:id', component: newsDetailPage },
-    {path: '/action/:id', component: actionDetailPage },
+    {path: '/promotion/:id', component: actionDetailPage },
     {path: '/our_map', component: our_map },
     {path: '/our_map/:floor/:map_place', component: our_map2 },
     {path: '/path', component: contacts },

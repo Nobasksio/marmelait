@@ -77,6 +77,14 @@ Vue.component('bread-crumbs',breadCrumbs)
 import plainPage from '../pages/other/plain-page'
 Vue.component('plain-page',plainPage)
 
+import VueMeta from 'vue-meta'
+
+Vue.use(VueMeta, {
+    // optional pluginOptions
+    refreshOnceOnNavigation: true
+})
+
+
 Vue.use(BootstrapVue)
 
 const router = new VueRouter({
@@ -98,6 +106,6 @@ new Vue({
             })
     },
     data: {
-        app_state: {}
+        app_state: {renters:[]}
     }
 })

@@ -47,6 +47,13 @@ class News
     /**
      * @ORM\Column(type="string", length=255)
      */
+    private $preview;
+
+    private $preview_upload;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
     private $image;
 
     private $image_upload;
@@ -287,7 +294,7 @@ class News
 
 
 
-    public function getArrayParam($array = ['id','name','description','short_description','image','instagram','vk','facebook']){
+    public function getArrayParam($array = ['id','name','preview','description','short_description','image','instagram','vk','facebook']){
 
         $array_param = [];
 

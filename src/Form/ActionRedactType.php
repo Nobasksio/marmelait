@@ -28,6 +28,7 @@ class ActionRedactType extends AbstractType
             ->add('date_start',TextType::class)
             ->add('date_finish',TextType::class)
             ->add('link')
+            ->add('preview_upload',FileType::class, ['data_class' => null,'required' => false])
             ->add('image_upload',FileType::class, ['data_class' => null,'required' => false])
             ->add('instagram')
             ->add('vk')

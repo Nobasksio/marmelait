@@ -74,7 +74,18 @@
                                     {{ form_widget(form.renter_id) }}
 
                                   </div>
+                                    <div class="form-group">
+                                      <label for="preview">Превью</label>
+                                      {{ form_widget(form.preview_upload, {'attr': {'id':'preview','class':'hide'}}) }}
+                                        {% if news is defined %}
+                                        <div id="preview_upload">
+                                            <img src="/uploads/file/{{ news.preview }}" class="preview_upload">
 
+                                        </div>
+                                        <div type="submit" class="btn btn-info " onclick="update('preview')">Заменить</div >
+                                        {% endif %}
+                                      <p class="help-block">Минимум 260х260 px. Должна быть квадратной. иначе будет ужасно смотреться</p>
+                                  </div>
                                   <div class="form-group">
                                       <label for="exampleInputFile">Картинка акции</label>
                                       {{ form_widget(form.image_upload, {'attr': {'id':'image','class':'hide'}}) }}

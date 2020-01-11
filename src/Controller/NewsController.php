@@ -129,6 +129,15 @@ class NewsController extends BaseController
 
         if ($form->isSubmitted() && $form->isValid()){
 
+            $preview = $form->get('preview')->getData();
+            $previewName = $this->generateUniqueFileName() . '.' . $preview->guessExtension();
+
+            $preview->move(
+                $this->getParameter('upload_file'),
+                $previewName
+            );
+            $news->setPreview($previewName);
+
             $image = $form->get('image')->getData();
             $imageName = $this->generateUniqueFileName() . '.' . $image->guessExtension();
 
@@ -164,6 +173,18 @@ class NewsController extends BaseController
 
         if ($form->isSubmitted() && $form->isValid()){
 
+
+            $preview = $form->get('preview_upload')->getData();
+
+            if (isset($preview) and $preview!=null){
+
+                $previewName = $this->generateUniqueFileName() . '.' . $preview->guessExtension();
+                $preview->move(
+                    $this->getParameter('upload_file'),
+                    $previewName
+                );
+                $news->setPreview($previewName);
+            }
 
             $image = $form->get('image_upload')->getData();
 
@@ -206,6 +227,15 @@ class NewsController extends BaseController
         if ($form->isSubmitted() && $form->isValid()){
 
 
+            $preview = $form->get('preview')->getData();
+            $previewName = $this->generateUniqueFileName() . '.' . $preview->guessExtension();
+
+            $preview->move(
+                $this->getParameter('upload_file'),
+                $previewName
+            );
+            $action->setPreview($previewName);
+
             $image = $form->get('image')->getData();
             $imageName = $this->generateUniqueFileName() . '.' . $image->guessExtension();
 
@@ -247,6 +277,18 @@ class NewsController extends BaseController
 
         if ($form->isSubmitted() && $form->isValid()){
 
+
+            $preview = $form->get('preview_upload')->getData();
+
+            if (isset($preview) and $preview!=null){
+
+                $previewName = $this->generateUniqueFileName() . '.' . $preview->guessExtension();
+                $preview->move(
+                    $this->getParameter('upload_file'),
+                    $previewName
+                );
+                $action->setPreview($previewName);
+            }
 
             $image = $form->get('image_upload')->getData();
 

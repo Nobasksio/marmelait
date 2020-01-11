@@ -416,7 +416,7 @@ class Action
         $this->short_description = $short_description;
     }
 
-    public function getArrayParam($array = ['id','name','description','short_description','image','instagram','vk','facebook']){
+    public function getArrayParam($array = ['id','name','preview','description','short_description','image','instagram','vk','facebook']){
 
         $array_param = [];
 

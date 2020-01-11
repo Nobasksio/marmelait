@@ -101,18 +101,26 @@ class indexController extends BaseController
 
         $place = $this->getParameter('myseting_place');
         $work_time = $this->getWorktime();
-        //$about = file_get_contents($place.'/about.txt');
+        $phone = file_get_contents($place.'/contact.txt');
+        $phone = explode("\n", $phone);
+        $phone_data = [];
+        foreach ($phone as $index=>$item){
+            $phone_arr = explode(":", $item);
+            $phone_data[$phone_arr[0]] = $phone_arr[1];
+        }
+
 
 
         $app_state = json_encode([
             'renters' => $array_renters,
             'sliders' => $array_sliders,
-            'news' => $array_news_and_actions,
-            'news_real'=> $array_news,
+            'news_and_promo' => $array_news_and_actions,
+            'news'=> $array_news,
             'actions' => $array_actions,
             'work_time' =>$work_time,
             'departments' => $categories,
-            'plainpages' => $plain_pages_array
+            'plainpages' => $plain_pages_array,
+            'phone' => $phone_data
         ], JSON_HEX_APOS | JSON_HEX_QUOT);
 
 

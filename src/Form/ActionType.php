@@ -28,6 +28,7 @@ class ActionType extends AbstractType
             ->add('date_start',TextType::class)
             ->add('date_finish',TextType::class)
             ->add('link')
+            ->add('preview',FileType::class)
             ->add('image',FileType::class)
             ->add('instagram')
             ->add('vk')
