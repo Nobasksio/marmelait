@@ -7,44 +7,57 @@
 
                 <template v-for="(brand_row, index) in brand_two_row" >
                     <div class="col-lg-4 col-md-6 col-12 brand-col" >
-                        <div class="card-brand"
-                             :class="{ 'card-brand_active': brand_row[0].show }"
-                             v-on:mouseover="mouseon(brand_row[0])"
-                             v-on:mouseout="mouseout(brand_row[0])"
+                        <div class="cardbrand_wrapper"
                         >
-                            <img :src="'/uploads/file/'+brand_row[0].logo" alt="" class="p-3 img-fluid" >
-                            <div v-if="brand_row[0].show" class="more_brand" >
-                                <div class="py-2" >
-                                    <span v-for="department in brand_row[0].departments" >{{department}} </span >
+                            <div class="card-brand"
+                                 :class="{ 'card-brand_active': brand_row[0].show }" >
+                                <router-link :to="'/renter/'+brand_row[0].id" class="stretched-link">
+                                <div class="img_wrapper" >
+                                    <img :src="'/uploads/file/'+brand_row[0].logo" alt=""
+                                         class="p-3 img-fluid" >
                                 </div >
-                                <div >
-                                    <b-button pill size="sm"
-                                              block
-                                              class=""
-                                              to='/department' variant="outline-info" >
-                                        {{brand_row[0].floor}} этаж
-                                    </b-button >
+                                </router-link>
+                                <div class="more_brand" >
+                                    <div class="py-2" >
+                                        <span v-for="department in brand_row[0].departments" >{{department}} </span >
+                                    </div >
+                                    <div >
+                                        <b-button pill size="sm"
+                                                  block
+                                                  class=""
+                                                  to='/department' variant="outline-info" >
+                                            {{brand_row[0].floor}} этаж
+                                        </b-button >
+                                    </div >
                                 </div >
                             </div >
-
                         </div >
-                        <div class="card-brand2"
-                             :class="{ 'card-brand2_active': brand_row[1].show }"
-                             v-on:mouseover="mouseon(brand_row[1])"
-                             v-on:mouseout="mouseout(brand_row[1])"
-                             v-if="brand_row[1] != null" >
-                            <img :src="'/uploads/file/'+brand_row[1].logo" alt="" class="p-3 img-fluid" >
-                            <div v-if="brand_row[1].show" class="more_brand" >
-                                <div class="py-2" >
-                                    <span v-for="department in brand_row[1].departments" >{{department}} </span >
+                        <div class="cardbrand_wrapper"
+                        >
+                            <div class="card-brand2"
+                                 :class="{ 'card-brand2_active': brand_row[1].show }"
+                                 v-if="brand_row[1] != null" >
+
+                                <div class="img_wrapper" >
+
+
+                                    <img :src="'/uploads/file/'+brand_row[1].logo" alt="" class="p-3 img-fluid" >
+                                    <router-link :to="'/renter/'+brand_row[1].id" class="stretched-link">
+                                    </router-link>
                                 </div >
-                                <div >
-                                    <b-button pill size="sm"
-                                              block
-                                              class=""
-                                              to='/department' variant="outline-info" >
-                                        {{brand_row[1].floor}} этаж
-                                    </b-button >
+
+                                <div class="more_brand" >
+                                    <div class="py-2" >
+                                        <span v-for="department in brand_row[1].departments" >{{department}} </span >
+                                    </div >
+                                    <div >
+                                        <b-button pill size="sm"
+                                                  block
+                                                  class=""
+                                                  to='/department' variant="outline-info" >
+                                            {{brand_row[1].floor}} этаж
+                                        </b-button >
+                                    </div >
                                 </div >
                             </div >
                         </div >
@@ -223,25 +236,31 @@
                 this.brands.forEach((item, i, arr) => {
                     if (brand.id == item.id) {
                         this.brands[i].show = true
-                        console.log('gjjj')
                     }
                 })
 
             },
             mouseout(brand) {
-                if (this.task !== null) {
-                    clearTimeout(this.task);
-                    this.task = null;
-                }
-                this.task = setTimeout(() => {
-                    this.task = null;
-                    this.brands.forEach((item, i, arr) => {
-                            if (brand.id == item.id) {
-                                this.brands[i].show = false
-                            }
+
+                this.brands.forEach((item, i, arr) => {
+                        if (brand.id == item.id) {
+                            this.brands[i].show = false
                         }
-                    )
-                }, 600);
+                    }
+                )
+                // if (this.task !== null) {
+                //     clearTimeout(this.task);
+                //     this.task = null;
+                // }
+                // this.task = setTimeout(() => {
+                //     this.task = null;
+                //     this.brands.forEach((item, i, arr) => {
+                //             if (brand.id == item.id) {
+                //                 this.brands[i].show = false
+                //             }
+                //         }
+                //     )
+                // }, 600);
             }
 
 
@@ -267,46 +286,73 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin: 25px 0px;
         border-radius: 15px;
         height: 130px;
         border: 2px solid #e0f7ee;
-        transition: transform 150ms ease-out;
+        -webkit-transition: .5s ease-in-out;
+        -moz-transition: .5s ease-in-out;
+        -o-transition: .5s ease-in-out;
+        transition: .5s ease-in-out;
+        position: absolute;
+        z-index: 1;
+        overflow: hidden;
     }
 
-    .card-brand2_active {
+    .card-brand2:hover {
         background: #ffffff;
         border: 2px solid #3fd5ae;
         height: 285px;
         margin-top: -155px;
         z-index: 10000;
         position: relative;
-        transition: transform 150ms ease-out;
+    }
+
+    .cardbrand_wrapper {
+        height: 130px;
+        margin: 25px 0px;
+        min-width: 100%;
+        position: relative;
     }
 
     .card-brand {
-        width: 100%;
+        min-width: 100%;
+        width: 1px;
         background: #e0f7ee;
         text-align: center;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin: 25px 0px;
-        border-radius: 15px;
         height: 130px;
+        border-radius: 15px;
         border: 2px solid #e0f7ee;
-        transition: transform 150ms ease-out;
+        -webkit-transition: .5s ease-in-out;
+        -moz-transition: .5s ease-in-out;
+        -o-transition: .5s ease-in-out;
+        transition: .5s ease-in-out;
+        position: absolute;
+        z-index: 1;
+        overflow: hidden;
     }
 
-    .card-brand_active {
+    .card-brand:hover {
         background: #ffffff;
         border: 2px solid #3fd5ae;
         height: 285px;
-        margin-bottom: -155px;
-        z-index: 10000;
+        z-index: 1000;
         position: relative;
-        transition: transform 150ms ease-out;
+    }
+
+    .more_brand {
+        display: none;
+    }
+
+    .card-brand:hover > .more_brand {
+        display: block;
+    }
+
+    .card-brand2:hover > .more_brand {
+        display: block;
     }
 
     .left_ar {
@@ -319,10 +365,23 @@
         transform: rotate(-180deg);
     }
 
+    .img_wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 126px;
+        min-width: 100%;
+    }
+
     .more_brand {
         border-top: 2px solid #3fd5ae;
         padding-top: 25px;
         padding-bottom: 15px;
-        min-width: 50%;
+        width: 50%;
+        -webkit-transition: .5s ease-in-out;
+        -moz-transition: .5s ease-in-out;
+        -o-transition: .5s ease-in-out;
+        transition: .5s ease-in-out;
     }
 </style >

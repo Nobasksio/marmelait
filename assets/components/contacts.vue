@@ -155,42 +155,42 @@
             }
         },
         mounted: function () {
-            // ymaps.ready(function () {
-            //     // Создание карты.
-            //     var myMap = new ymaps.Map("map2", {
-            //         center: [56.513904, 84.973392],
-            //         zoom: 17,
-            //         controls: ['zoomControl'],
-            //     });
-            //     var suggestView = new ymaps.SuggestView(
-            //         'from', // ID input'а
-            //         {
-            //             offset: [-2, 3], // Отступы панели подсказок от её положения по умолчанию. Задаётся в виде смещений по горизонтали и вертикали относительно левого нижнего угла элемента input.
-            //             // Ширина панели подсказок
-            //             results: 6, // Максимальное количество показываемых подсказок.
-            //             boundedBy: [[55, 81], [58, 87]]
-            //         });
-            //
-            //     var myGeoObject = new ymaps.GeoObject({
-            //         geometry: {
-            //             type: "Point", // тип геометрии - точка
-            //             coordinates: [56.514972, 84.973658] // координаты точки
-            //         }
-            //     });
-            //     var myPlacemark = new ymaps.Placemark([56.514939, 84.973363], {
-            //
-            //         // Хинт показывается при наведении мышкой на иконку метки.
-            //         hintContent: 'ТЦ Мирамикс',
-            //         // Балун откроется при клике по метке.
-            //         balloonContent: 'ТЦ Мирамикс, г. Томск, ул. Проспект Мира 36',
-            //     }, {
-            //         iconColor: '#B52F18',
-            //     });
-            //
-            //     // После того как метка была создана, добавляем её на карту.
-            //     myMap.geoObjects.add(myPlacemark);
-            //
-            // });
+            ymaps.ready(function () {
+                // Создание карты.
+                var myMap = new ymaps.Map("map2", {
+                    center: [56.593713, 84.909707],
+                    zoom: 17,
+                    controls: ['zoomControl'],
+                });
+                var suggestView = new ymaps.SuggestView(
+                    'from', // ID input'а
+                    {
+                        offset: [-2, 3], // Отступы панели подсказок от её положения по умолчанию. Задаётся в виде смещений по горизонтали и вертикали относительно левого нижнего угла элемента input.
+                        // Ширина панели подсказок
+                        results: 6, // Максимальное количество показываемых подсказок.
+                        boundedBy: [[55, 81], [58, 87]]
+                    });
+
+                var myGeoObject = new ymaps.GeoObject({
+                    geometry: {
+                        type: "Point", // тип геометрии - точка
+                        coordinates: [56.593713, 84.909707] // координаты точки
+                    }
+                });
+                var myPlacemark = new ymaps.Placemark([56.593713, 84.909707], {
+
+                    // Хинт показывается при наведении мышкой на иконку метки.
+                    hintContent: 'ТЦ Мармелайн',
+                    // Балун откроется при клике по метке.
+                    balloonContent: 'ТЦ Мармелайт, г. северск, ул. Курчатова 11А',
+                }, {
+                    iconColor: '#B52F18',
+                });
+
+                // После того как метка была создана, добавляем её на карту.
+                myMap.geoObjects.add(myPlacemark);
+
+            });
         },
         methods: {
             make_path() {

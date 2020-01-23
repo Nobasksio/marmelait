@@ -11,17 +11,34 @@
                         на розыгрыши бытовой и цифровой техники
                         и других полезных призов!
                     </div >
-                    <div class="pb-1">
-                        <b-form-input v-model="email" placeholder="email" class="input_subscribe" ></b-form-input >
+                    <div v-if="show_form" >
+                        <div class="pb-1" >
+                            <b-form-input v-model="email" placeholder="email" class="input_subscribe" ></b-form-input >
+                        </div >
+                        <div class="pb-4" >
+                            <input type="checkbox" class="" id="exampleCheck1" v-model="agree" >
+                            <label class="text10" for="exampleCheck1" > Я прочитал (-а) и принимаю Политику
+                                конфиденциальности</label >
+                        </div >
+                        <b-button pill class="text-light" variant="info" @click="saveEmail" >
+                            <div class="row justify-content-center align-content-center" >
+                                <div class="col" >
+                                    Подписаться
+                                </div >
+                                <div class="col" v-show="loading">
+                                    <b-spinner type="grow" label="Spinning"  small ></b-spinner >
+                                </div >
+                            </div >
+                        </b-button >
                     </div >
-                    <div class="pb-4" >
-                        <input type="checkbox" class="" id="exampleCheck1" >
-                        <label class="text10" for="exampleCheck1" > Я прочитал (-а) и принимаю Политику
-                            конфиденциальности</label >
+                    <div v-else >
+                        <div class="text-black bold text-uppercase font17 pb-2" >
+                            Ваш запрос успешно отправлен!
+                        </div >
+                        <div class="font14">
+                            Вам на почту должно прийти подтверждение подписки.
+                        </div>
                     </div >
-                    <b-button pill class="text-light" variant="info" @click="saveEmail">
-                        Подписаться
-                    </b-button >
                 </div >
             </div >
         </div >
@@ -77,31 +94,17 @@
                     email: this.email,
                 });
 
-                this.show_form = false;
 
                 let text = ''
                 axios.post('/ajax/subscriber/new',
                     "data=" + data_request
                 ).then(response => {
 
-                    text = 'Настройки проекта успешно сохранены'
-
-                    this.$bvToast.toast(text, {
-                        title: 'Проект сохранен',
-                        autoHideDelay: 5000,
-                        variant: 'success',
-                        appendToast: true
-
-                    })
+                    this.show_form = false;
                     this.loading = false
 
                 }).catch(error => {
-                    this.$bvToast.toast(`При сохранении проекта возникли проблемы`, {
-                        title: 'Ошибка сохранения',
-                        autoHideDelay: 5000,
-                        variant: 'danger',
-                        appendToast: true
-                    })
+
                 });
             },
         },
@@ -128,9 +131,10 @@
 </script >
 
 <style scoped >
-    .grey-bg{
+    .grey-bg {
         background: #f5f4f3;
     }
+
     .subscribe_blk {
 
         background: url(/img/fon.svg) center;

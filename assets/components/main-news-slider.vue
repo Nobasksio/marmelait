@@ -59,7 +59,7 @@
                 >
                     <div class='col-12 d-flex align-items-stretch card-carousel-cards_wrapper'
                          :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}" >
-                        <div class="col-lg-4 col-12 col-md-6 news1 d-flex align-items-end p-0"
+                        <div class="col-lg-4 col-12 col-md-6 news1 d-flex align-items-end p-0 news_card"
                              :style="'background: url(/uploads/file/'+news_item.preview+') no-repeat; background-position: center; background-size: cover;'"
                              :key='news_item.id' v-for="(news_item, index) in news" >
                             <div class="cover_news black_c col-12" >
@@ -277,6 +277,9 @@
         margin-right: 20px;
     }
 
+    .news_card:hover > .cover_news{
+        background-color: rgba(233, 241, 208, 1);
+    }
     .cover_news {
         background-color: rgba(245, 244, 243, 0.9);
         padding: 10px 20px 25px;

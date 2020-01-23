@@ -22,7 +22,7 @@ class FeedbackController extends BaseController
         ]);
     }
     /**
-     * @Route("/contacts", name="contacts", methods={"GET","POST"})
+     * @Route("/contacts_old", name="contacts", methods={"GET","POST"})
      */
     public function index(Request $request): Response
     {

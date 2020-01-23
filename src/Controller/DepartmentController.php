@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class DepartmentController extends BaseController
 {
     /**
-     * @Route("/department", name="department")
+     * @Route("/department_old", name="department")
      */
     public function index(CategoryRepository $categoryRepository, RenterRepository $renterRepository)
     {

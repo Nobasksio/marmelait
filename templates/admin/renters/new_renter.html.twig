@@ -53,7 +53,7 @@
                                        </div>
                                        <div type="submit" class="btn btn-info " onclick="update('logo')">Заменить</div >
                                         {% endif %}
-                                      <p class="help-block">200х200px. На белом фоне. отсутпы 25px с каждой стороны.  <a href="{{ asset('img/200x200px.jpg') }}" target="_blank">Скачать пример</a></p>
+                                      <p class="help-block">большая из сторон должна быть не больше 300px. На прозрачном фоне по возможности.  </p>
                                   </div>
                                   <div class="form-group">
                                       <label for="exampleInputFile">Картинка на деталью страницу арендатора</label>
@@ -65,7 +65,7 @@
                                         </div>
                                         <div type="submit" class="btn btn-info " onclick="update('image')">Заменить</div >
                                          {% endif %}
-                                      <p class="help-block">600х600 px.</p>
+                                      <p class="help-block">ширина 900px(высота любая до 600px)</p>
                                   </div>
                                   <div class="form-group" >
                                       <label >Этаж</label >
@@ -78,7 +78,7 @@
                                     <label>Отдел на карте</label>
                                     {{ form_widget(form.mapPlace) }}
                                     <div>
-                                    <a href="{{ asset('img/floor0.jpg') }}" target="_blank">Карта 0 этаж</a>
+
                                     <a href="{{ asset('img/floor1.jpg') }}" target="_blank">Карта 1 этаж</a>
                                     <a href="{{ asset('img/floor2.jpg') }}" target="_blank">Карта 2 этаж</a>
                                     </div>

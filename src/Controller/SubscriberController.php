@@ -60,7 +60,7 @@ class SubscriberController extends AbstractController
             $curl->post('https://api.getresponse.com/v3/contacts',$data);
 
 
-                $result = $curl->response->json;
+//                $result = $curl->response->json;
 
             return new Response(1);
         } catch (\mysqli_sql_exception $exception) {

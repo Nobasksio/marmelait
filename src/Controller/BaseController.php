@@ -26,13 +26,13 @@ class BaseController extends AbstractController
 
     public function getWorktime(){
         $array_week = array(
-            0=>'ПОНЕДЕЛЬНИК',
-            1=>'ВТОРНИК',
-            2=>'СРЕДА',
-            3=>'ЧЕТВЕРГ',
-            4=>'ПЯТНИЦА',
-            5=>'СУББОТА',
-            6=>'ВОСКРЕСЕНЬЕ',
+            0=>'ВС',
+            1=>'ПН',
+            2=>'ВТ',
+            3=>'СР',
+            4=>'ЧТ',
+            5=>'ПТ',
+            6=>'СБ',
         );
         $place = $this->getParameter('myseting_place');
         $worktime_content = file_get_contents($place.'/worktime.txt');
@@ -43,7 +43,7 @@ class BaseController extends AbstractController
             $day_arr = explode(";", $item);
             if (count($day_arr)>1) {
                 $day_arr_time = explode("-", $day_arr[1]);
-                $work_time[$array_week[$index]] = ['start' => $day_arr_time[0], 'finish' => $day_arr_time[1]];
+                $work_time[] = ['start' => $day_arr_time[0], 'finish' => $day_arr_time[1],'name'=>$array_week[$index]];
             }
         }
 

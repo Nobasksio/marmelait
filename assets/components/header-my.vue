@@ -13,7 +13,7 @@
                             <div class="row align-items-center" >
                                 <div class="col-auto p-0" >
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.43 20.43"
-                                         class="my-icon d-md-none" >
+                                         class="my-icon d-lg-inline d-md-none" >
                                         <g id="Слой_2" data-name="Слой 2" >
                                             <g id="Слой_1-2" data-name="Слой 1" >
                                                 <circle class="cls-1" cx="10.22" cy="10.22" r="9.97" />
@@ -34,7 +34,7 @@
                             <div class="row align-items-center" >
                                 <div class="col-auto p-0" >
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.43 20.43"
-                                         class="my-icon d-md-none" >
+                                         class="my-icon d-lg-inline d-md-none" >
                                         <g id="Слой_2" data-name="Слой 2" >
                                             <g id="Слой_1-2" data-name="Слой 1" >
                                                 <circle class="cls-1" cx="10.22" cy="10.22" r="9.97" />
@@ -57,10 +57,48 @@
                 </div >
                 <div class="col-auto d-md-flex d-none" >
                     <div class="row align-items-center " >
-                        <div class="col-auto p-0" ><img src="img/icon/clock.svg" alt=""
+                        <div class="col-auto p-0" ><img src="/img/icon/clock.svg" alt=""
                                                         class="my-icon d-lg-inline d-md-none" ></div >
-                        <div class="col-auto text-left" >Сегодня открыт до 22:00
-                            <div >Время работы</div >
+                        <div class="col-auto text-left" >Сегодня открыт до {{ today_until }}
+                            <div class="hover_link"><div class="dashed">Время работы</div>
+                                <div class="tooltip_work_time work_time_blk" >
+
+                                    <div class="work_time_contact_area" >
+                                        <div class="name_contact_filds center white_c" >РЕЖИМ РАБОТЫ</div >
+                                    </div >
+                                    <div class="work_days_area " >
+                                        <div class="work_time_block flex f_gorizontal" >
+                                            <div class="work_time_item" v-for="(day,index) in w_time" v-show="index != 0">
+                                                <div class="today" v-show="today_index_day == index">сегодня</div >
+                                                <div class="week_day center" >
+                                                    {{ day.name }}
+                                                </div >
+                                                <div class="week_day_work_hours center" >
+                                                    <div class="start_work center" >{{ day.start }}</div >
+                                                    <div class="finish_work center" >{{ day.finish }}</div >
+
+                                                </div >
+                                            </div >
+                                            <div class="work_time_item">
+                                                <div class="week_day center" >
+                                                    {{ w_time[0].name }}
+                                                </div >
+                                                <div class="week_day_work_hours center" >
+                                                    <div class="today" v-show="today_index_day == 0">сегодня</div >
+                                                    <div class="start_work center" >{{ w_time[0].start }}</div >
+                                                    <div class="finish_work center" >{{ w_time[0].finish }}</div >
+
+
+                                                </div >
+                                            </div >
+
+                                        </div >
+
+                                    </div >
+                                </div >
+                                </b-popover>
+                            </div >
+
                         </div >
                     </div >
 
@@ -151,7 +189,24 @@
 <script >
     export default {
         name: "header-my",
-        props: ['app_state']
+        props: ['app_state'],
+        data: function () {
+            return {
+                w_time:this.app_state.work_time
+            }
+        },
+        computed:{
+            today_until(){
+                let now = new Date(),
+                    w_time_until = this.w_time[ now.getDay() ].finish;
+                return w_time_until
+            },
+            today_index_day(){
+                let now = new Date();
+
+                return now.getDay()
+            }
+        }
     }
 </script >
 
@@ -196,4 +251,58 @@
     .cls-2 {
         fill: #803556;
     }
+
+    .work_time_blk {
+        max-width: 400px;
+        font-size: 12px;
+    }
+
+    .hover_link {
+        cursor: pointer;
+        position: relative;
+    }
+
+    .tooltip_work_time:before {
+        content: '';
+        width: 0;
+          height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 10px solid #803556;
+        position: absolute;
+        top: -10px;
+        left: 260px;
+    }
+
+    .hover_link:hover .tooltip_work_time {
+        visibility: visible;
+        top: 100%;
+        transform: translate3d(0, 0, 0);
+    }
+
+    .tooltip_work_time {
+        visibility: hidden;
+        width: 400px;
+        padding-bottom: 20px;
+        background: #fff;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        margin-top: 20px;
+        box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.5);
+        /* Position the tooltip */
+        position: absolute;
+        z-index: 156454464;
+        top: 10%;
+        left: 50%;
+        margin-left: -300px;
+        transition: all .250s cubic-bezier(0, 0, 0.2, 1);
+    }
+
+    .dashed{
+       display: inline;
+        border-bottom: 1px dashed grey;
+    }
+
+
 </style >

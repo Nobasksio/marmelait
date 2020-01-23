@@ -53,7 +53,7 @@
             <div class="col d-flex ofh px-0 "
             >
                 <div class='col-12 d-flex align-items-stretch card-carousel-cards_wrapper' :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}" >
-                    <div class="col-lg-4 col-12 col-md-6 news1 d-flex align-items-end p-0"
+                    <div class="col-lg-4 col-12 col-md-6 news1 d-flex align-items-end p-0 news_card"
                          :style="'background: url(/uploads/file/'+promo_item.preview+') no-repeat; background-position: center; background-size: cover;'"
                          :key='promo_item.id' v-for="(promo_item, index) in promo"
                     >
@@ -262,6 +262,9 @@
         margin-right: 20px;
     }
 
+    .news_card:hover > .cover_news{
+        background-color: rgba(255, 230, 236, 1);
+    }
     .cover_news {
         background-color: rgba(245, 244, 243, 0.9);
         padding: 10px 20px 25px;

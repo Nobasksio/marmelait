@@ -8,6 +8,7 @@ import our_map from '../components/our-map'
 import our_map2 from '../components/our-map2'
 import plainPage from '../pages/other/plain-page'
 import renterPage from '../components/deparment-page'
+import p404 from '../pages/other/404'
 
 export const routes = [
     {path: '/department', component: Department },
@@ -21,4 +22,5 @@ export const routes = [
     {path: '/path', component: contacts },
     {path: '/contacts', component: contacts },
     {path: '/plainpage/:name_page', component: plainPage },
+    {path: '/*', component: p404 },
 ]

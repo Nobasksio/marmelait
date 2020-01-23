@@ -477,18 +477,18 @@
                             <rect ref='place100' @click="showOnMap(100)" class="cls-2" x="1040.4" width="61.5"
                                   height="78.2" />
                         </g >
-                        <g >
-                            <rect ref='place101' @click="showOnMap(101)" class="cls-2" x="1110.1" y="431.6" width="39.8"
-                                  height="15.7" />
-                        </g >
-                        <g >
-                            <rect ref='place102' @click="showOnMap(102)" class="cls-2" x="1110.1" y="460.4" width="39.8"
-                                  height="18" />
-                        </g >
-                        <g >
-                            <rect ref='place103' @click="showOnMap(103)" class="cls-2" x="1097.2" y="491.4" width="52.6"
-                                  height="60.7" />
-                        </g >
+                        <!--<g >-->
+                            <!--<rect ref='place101' @click="showOnMap(101)" class="cls-2" x="1110.1" y="431.6" width="39.8"-->
+                                  <!--height="15.7" />-->
+                        <!--</g >-->
+                        <!--<g >-->
+                            <!--<rect ref='place102' @click="showOnMap(102)" class="cls-2" x="1110.1" y="460.4" width="39.8"-->
+                                  <!--height="18" />-->
+                        <!--</g >-->
+                        <!--<g >-->
+                            <!--<rect ref='place103' @click="showOnMap(103)" class="cls-2" x="1097.2" y="491.4" width="52.6"-->
+                                  <!--height="60.7" />-->
+                        <!--</g >-->
 
                     </svg >
 
