@@ -31,7 +31,9 @@
                     </b-button >
                 </div >
                 <div class="" >
+                    <a :href="`http://${our_renter.link}`" class="link_brand" >
                     {{our_renter.link}}
+                    </a>
                 </div >
             </div >
             <div class="col-8 border-left " >

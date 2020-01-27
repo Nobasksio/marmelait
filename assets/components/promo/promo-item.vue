@@ -23,10 +23,10 @@
                                   size="sm" >
                             <div class="d-flex">
                                 <div >
-                                    Читать
+                                    {{show_more ? 'Свернуть': "Читать"}}
                                 </div >
                                 <div class="pl-2">
-                                    <img src="/img/icon/morew.svg" alt="" class="more_icon" >
+                                    <img src="/img/icon/morew.svg" alt="" class="more_icon" :class="{  'rotate180':show_more }">
                                 </div >
                             </div >
                         </b-button >
@@ -68,5 +68,10 @@
     .more_icon{
         width: 10px;
         fill:#fff;
+        transition-duration: .5s;
+    }
+    .rotate180{
+        transform: rotate(180deg);
+
     }
 </style >

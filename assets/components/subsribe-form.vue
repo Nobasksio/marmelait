@@ -4,7 +4,7 @@
             <div class="subscribe_wraper bg-white" >
                 <div class="container_subscribe py-5" >
                     <div class="text-black bold text-uppercase font17 pb-2" >
-                        Подпишись на нашу рассылку
+                        Подпишитесь на нашу рассылку
                     </div >
                     <div class="font14 pb-4" >
                         и регулярно получайте купоны

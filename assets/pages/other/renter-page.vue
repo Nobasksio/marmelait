@@ -19,7 +19,7 @@
                                 {{ our_renter.floor }} ЭТАЖ
                             </div >
                             <div class="" >
-                                <a :href="our_renter.link" class="link_brand" >{{ our_renter.link }}</a >
+                                <a :href="`http://${our_renter.link}`" class="link_brand" >{{ our_renter.link }}</a >
                             </div >
                         </div >
                     </div >

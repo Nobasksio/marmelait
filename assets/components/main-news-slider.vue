@@ -55,37 +55,48 @@
                         </div >
                     </div >
                 </div >
-                <div class="col d-flex ofh px-0 "
+                <div class="col d-flex ofh  pr-0"
                 >
-                    <div class='col-12 d-flex align-items-stretch card-carousel-cards_wrapper'
+
+                    <div class='col-12 d-flex row align-items-stretch card-carousel-cards_wrapper pr-0'
                          :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}" >
-                        <div class="col-lg-4 col-12 col-md-6 news1 d-flex align-items-end p-0 news_card"
-                             :style="'background: url(/uploads/file/'+news_item.preview+') no-repeat; background-position: center; background-size: cover;'"
-                             :key='news_item.id' v-for="(news_item, index) in news" >
-                            <div class="cover_news black_c col-12" >
-                                <div class="py-4" >
-                                    <div class="d-flex align-items-center justify-content-between" >
-                                        <img src="/img/icon/news2.svg" alt="" class="news_icon_round" >
-                                        <div >{{ news_item.date}}</div >
+
+                        <div class="col-lg-4 col-12 col-md-6 d-flex align-items-stretch"
+                             :key='news_item.id'
+                             v-for="(news_item, index) in news" >
+                            <div :style="'background: url(/uploads/file/'+news_item.preview+') no-repeat; background-position: center; background-size: cover;'"
+                            class="d-flex align-items-end col-12 p-0 news_card"
+                            >
+
+                                <div class="cover_news black_c col-12"
+                                >
+                                    <div class="py-4" >
+                                        <div class="d-flex align-items-center justify-content-between" >
+                                            <img src="/img/icon/news2.svg" alt="" class="news_icon_round" >
+                                            <div >{{ news_item.date}}</div >
+                                        </div >
+                                    </div >
+                                    <div class="uppercase bold py-2" >
+                                        {{news_item.name}}
+                                    </div >
+                                    <div >
+                                        {{news_item.short_description}}
+                                    </div >
+                                    <div class="d-flex justify-content-end align-items-center pt-3 bold" >
+                                        <div class="font11" >
+                                            Подробнее
+                                        </div >
+                                        <div class="pl-3" >
+                                            <img src="/img/icon/more.svg" alt="" class="more_icon" >
+                                        </div >
                                     </div >
                                 </div >
-                                <div class="uppercase bold py-2" >
-                                    {{news_item.name}}
-                                </div >
-                                <div >
-                                    {{news_item.short_description}}
-                                </div >
-                                <div class="d-flex justify-content-end align-items-center pt-3 bold" >
-                                    <div class="font11" >
-                                        Подробнее
-                                    </div >
-                                    <div class="pl-3" >
-                                        <img src="/img/icon/more.svg" alt="" class="more_icon" >
-                                    </div >
-                                </div >
+                                <b-link class='stretched-link'
+                                        :href="'/news#'+news_item.type+''+news_item.id" ></b-link >
                             </div >
-                            <b-link class='stretched-link' :href="'/news#'+news_item.type+''+news_item.id" ></b-link >
+
                         </div >
+
 
                     </div >
                 </div >
@@ -167,10 +178,10 @@
             },
 
             paginationFactor() {
-                if (screen.width < 400) {
-                    return screen.width - 15 + 7
+                if (screen.width < 500) {
+                    return screen.width - 15
                 } else {
-                    return 380
+                    return 345
                 }
             },
             windowSize() {
@@ -230,7 +241,7 @@
         padding: 0 18px;
         height: 435px;
         width: 150px;
-        margin-right: 25px;
+        margin-right: 0px;
     }
 
     .promo_blk {
@@ -273,13 +284,10 @@
         width: 45px;
     }
 
-    .news1 {
-        margin-right: 20px;
-    }
-
-    .news_card:hover > .cover_news{
+    .news_card:hover > .cover_news {
         background-color: rgba(233, 241, 208, 1);
     }
+
     .cover_news {
         background-color: rgba(245, 244, 243, 0.9);
         padding: 10px 20px 25px;

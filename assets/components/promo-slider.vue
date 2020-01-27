@@ -11,6 +11,8 @@
                     </div >
                 </div >
                 <div class="col p-0" >
+
+
                     <div class="d-flex justify-content-center " >
                         <div class=" nav-arrow mr-4" @click="moveCarousel(-1)" >
                             <svg xmlns="http://www.w3.org/2000/svg" class="left_ar_promo" viewBox="0 0 30 30" >
@@ -50,42 +52,48 @@
                     </div >
                 </div >
             </div >
-            <div class="col d-flex ofh px-0 "
+            <div class="col d-flex ofh pr-0"
             >
-                <div class='col-12 d-flex align-items-stretch card-carousel-cards_wrapper' :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}" >
-                    <div class="col-lg-4 col-12 col-md-6 news1 d-flex align-items-end p-0 news_card"
-                         :style="'background: url(/uploads/file/'+promo_item.preview+') no-repeat; background-position: center; background-size: cover;'"
-                         :key='promo_item.id' v-for="(promo_item, index) in promo"
-                    >
-                        <div class="cover_news black_c col-12" >
-                            <div class="py-4" >
-                                <div class="d-flex align-items-center justify-content-between" >
-                                    <img src="/img/icon/label2.svg" alt="" class="news_icon_round" >
-                                    <div >{{ promo_item.date}}</div >
+                    <div class='col-12 d-flex row align-items-stretch card-carousel-cards_wrapper pr-0'
+                         :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}" >
+                        <div class="col-lg-4 col-12 col-md-6 d-flex align-items-stretch"
+                             :key='promo_item.id'
+                             v-for="(promo_item, index) in promo"
+                        >
+                            <div :style="'background: url(/uploads/file/'+promo_item.preview+') no-repeat; background-position: center; background-size: cover;'"
+                                 class="d-flex align-items-end col-12 p-0 news_card"
+                            >
+                            <div class="cover_news black_c col-12" >
+                                <div class="py-4" >
+                                    <div class="d-flex align-items-center justify-content-between" >
+                                        <img src="/img/icon/label2.svg" alt="" class="news_icon_round" >
+                                        <div >{{ promo_item.date}}</div >
+                                    </div >
                                 </div >
-                            </div >
-                            <div class="uppercase bold py-2" >
-                                {{promo_item.name}}
-                            </div >
-                            <div >
-                                {{promo_item.short_description}}
-                            </div >
-                            <div class="d-flex justify-content-end align-items-center pt-3 bold" >
-                                <div class="font11" >
-                                    Подробнее
+                                <div class="uppercase bold py-2" >
+                                    {{promo_item.name}}
                                 </div >
-                                <div class="pl-3" >
-                                    <img src="/img/icon/more.svg" alt="" class="more_icon" >
+                                <div >
+                                    {{promo_item.short_description}}
                                 </div >
+                                <div class="d-flex justify-content-end align-items-center pt-3 bold" >
+                                    <div class="font11" >
+                                        Подробнее
+                                    </div >
+                                    <div class="pl-3" >
+                                        <img src="/img/icon/more.svg" alt="" class="more_icon" >
+                                    </div >
+                                </div >
+                                <b-link class='stretched-link'
+                                        :href="'/news#'+promo_item.type+''+promo_item.id" ></b-link >
+                            </div>
                             </div >
-                            <b-link class='stretched-link' :href="'/news#'+promo_item.type+''+promo_item.id"></b-link>
                         </div >
                     </div >
 
-                </div >
             </div >
         </div >
-        <div class="row d-md-none d-flex">
+        <div class="row d-md-none d-flex" >
             <div class="col py-3" >
                 <div class="d-flex justify-content-around" >
                     <div class=" nav-arrow mr-4" @click="moveCarousel(-1)" >
@@ -127,7 +135,7 @@
                     </b-button >
                 </div >
             </div >
-        </div>
+        </div >
     </div >
 </template >
 
@@ -152,10 +160,10 @@
             },
 
             paginationFactor() {
-                if (screen.width < 400) {
-                    return screen.width - 15+7
+                if (screen.width < 500) {
+                    return screen.width - 15
                 } else {
-                    return 380
+                    return 345
                 }
             },
             windowSize() {
@@ -215,9 +223,10 @@
         padding: 0 18px;
         height: 435px;
         width: 150px;
-        margin-right: 25px;
+        margin-right: 0px;
     }
-    .promo_blk{
+
+    .promo_blk {
         height: 435px;
     }
 
@@ -257,14 +266,14 @@
         width: 45px;
     }
 
-
     .news1 {
         margin-right: 20px;
     }
 
-    .news_card:hover > .cover_news{
+    .news_card:hover > .cover_news {
         background-color: rgba(255, 230, 236, 1);
     }
+
     .cover_news {
         background-color: rgba(245, 244, 243, 0.9);
         padding: 10px 20px 25px;
