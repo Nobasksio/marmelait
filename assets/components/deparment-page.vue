@@ -2,7 +2,7 @@
     <div class="container" >
         <h3 class="bold pt-2 pb-4" >{{our_renter.name}}</h3 >
         <div class="row" >
-            <div class="col-md-3 d-none text-center d-md-flex align-items-center justify-content-center px-md-0" >
+            <div class="col-md-3 d-none text-center d-md-flex align-items-center justify-content-center px-md-3" >
                 <img :src="'/uploads/file/'+our_renter.logo" alt="" >
             </div >
             <div class="col-md-9 col-12 text-center px-md-0" >

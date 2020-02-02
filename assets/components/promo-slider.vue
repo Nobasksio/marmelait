@@ -54,15 +54,15 @@
             </div >
             <div class="col d-flex ofh pr-0"
             >
-                    <div class='col-12 d-flex row align-items-stretch card-carousel-cards_wrapper pr-0'
-                         :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}" >
-                        <div class="col-lg-4 col-12 col-md-6 d-flex align-items-stretch"
-                             :key='promo_item.id'
-                             v-for="(promo_item, index) in promo"
+                <div class='col-12 d-flex row align-items-stretch card-carousel-cards_wrapper pr-0'
+                     :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}" >
+                    <div class="col-lg-4 col-12 col-md-6 d-flex align-items-stretch"
+                         :key='promo_item.id'
+                         v-for="(promo_item, index) in promo"
+                    >
+                        <div :style="'background: url(/uploads/file/'+promo_item.preview+') no-repeat; background-position: center; background-size: cover;'"
+                             class="d-flex align-items-end col-12 p-0 news_card"
                         >
-                            <div :style="'background: url(/uploads/file/'+promo_item.preview+') no-repeat; background-position: center; background-size: cover;'"
-                                 class="d-flex align-items-end col-12 p-0 news_card"
-                            >
                             <div class="cover_news black_c col-12" >
                                 <div class="py-4" >
                                     <div class="d-flex align-items-center justify-content-between" >
@@ -84,12 +84,13 @@
                                         <img src="/img/icon/more.svg" alt="" class="more_icon" >
                                     </div >
                                 </div >
-                                <b-link class='stretched-link'
-                                        :href="`/promotion/${promo_item.id}`" ></b-link >
-                            </div>
+
                             </div >
+                            <b-link class='stretched-link'
+                                    :href="`/promotion/${promo_item.id}`" ></b-link >
                         </div >
                     </div >
+                </div >
 
             </div >
         </div >
