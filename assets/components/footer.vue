@@ -36,18 +36,18 @@
                         <div class="row social_media_blk py-4" >
                             <div class="col" >
                                 <div class="smm_item  mx-auto" >
-                                    <div class="smm_in" ><a href="https://instagram.com/tc_miramiks" class="block" ></a >
+                                    <div class="smm_in" ><a href="https://instagram.com/tc_marmelight?igshid=e0k4mnb7xols" class="block" ></a >
                                     </div >
                                 </div >
                             </div >
                             <div class="col" >
                                 <div class="smm_item  mx-auto" >
-                                    <div class="smm_vk" ><a href="https://vk.com/miramiks.tomsk" class="block" ></a ></div >
+                                    <div class="smm_vk" ><a href="https://vk.com/marmelight" class="block" ></a ></div >
                                 </div >
                             </div >
                             <div class="col" >
                                 <div class="smm_item  mx-auto" >
-                                    <div class="smm_fb" ><a href="https://vk.com/miramiks.tomsk" class="block" ></a ></div >
+                                    <div class="smm_yt" ><a href="https://www.youtube.com/channel/UC7E4IAZY_BlKf1tMxFk_xCg" class="block" ></a ></div >
                                 </div >
                             </div >
                         </div >
@@ -87,18 +87,18 @@
                 <div class="col-12 d-flex py-4">
                     <div class="col" >
                         <div class="smm_item  mx-auto" >
-                            <div class="smm_in" ><a href="https://instagram.com/tc_miramiks" class="block" ></a >
+                            <div class="smm_in" ><a href="https://instagram.com/tc_marmelight?igshid=e0k4mnb7xols" class="block" ></a >
                             </div >
                         </div >
                     </div >
                     <div class="col" >
                         <div class="smm_item  mx-auto" >
-                            <div class="smm_vk" ><a href="https://vk.com/miramiks.tomsk" class="block" ></a ></div >
+                            <div class="smm_vk" ><a href="https://vk.com/marmelight" class="block" ></a ></div >
                         </div >
                     </div >
                     <div class="col" >
                         <div class="smm_item  mx-auto" >
-                            <div class="smm_fb" ><a href="https://vk.com/miramiks.tomsk" class="block" ></a ></div >
+                            <div class="smm_yt" ><a href="https://www.youtube.com/channel/UC7E4IAZY_BlKf1tMxFk_xCg" class="block" ></a ></div >
                         </div >
                     </div >
                 </div>

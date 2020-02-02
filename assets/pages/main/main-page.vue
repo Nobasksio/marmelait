@@ -2,6 +2,7 @@
     <div >
         <main-slider :slides="app_state.sliders" ></main-slider >
         <slider-brand :brands="app_state.renters" ></slider-brand >
+        <we-cool></we-cool>
         <main-news-slider :news="app_state.news"
                           :promo="app_state.actions"
         >

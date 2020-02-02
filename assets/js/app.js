@@ -77,6 +77,9 @@ Vue.component('bread-crumbs',breadCrumbs)
 import plainPage from '../pages/other/plain-page'
 Vue.component('plain-page',plainPage)
 
+import weCool from '../components/we-cool/we-cool'
+Vue.component('we-cool',weCool)
+
 import VueMeta from 'vue-meta'
 
 Vue.use(VueMeta, {
@@ -109,6 +112,8 @@ new Vue({
             })
     },
     data: {
-        app_state: {renters:[]}
+        app_state: {
+            renters:[],
+        }
     }
 })

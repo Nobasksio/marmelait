@@ -1572,15 +1572,15 @@ svg {
     cursor: pointer;
 }
 
-.smm_fb {
-    background-image: url('../img/fb.png');
+.smm_yt {
+    background-image: url('../img/youtube.png');
     background-size: cover;
     height: 50px;
     background-position-y: -52px;
     background-repeat: no-repeat;
 }
 
-.smm_fb:hover {
+.smm_yt:hover {
     background-position-y: 0;
     cursor: pointer;
 }

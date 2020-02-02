@@ -191,14 +191,14 @@
 
             },
             paginationFactor() {
-                if (screen.width < 400) {
-                    return 340
+                if (screen.width < 500) {
+                    return screen.width - 30
                 } else {
                     return 400
                 }
             },
             windowSize() {
-                if (screen.width < 400) {
+                if (screen.width < 500) {
                     return 1
                 } else {
                     return 3

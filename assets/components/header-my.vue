@@ -96,7 +96,6 @@
 
                                     </div >
                                 </div >
-                                </b-popover>
                             </div >
 
                         </div >

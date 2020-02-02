@@ -85,7 +85,7 @@
                                     </div >
                                 </div >
                                 <b-link class='stretched-link'
-                                        :href="'/news#'+promo_item.type+''+promo_item.id" ></b-link >
+                                        :href="`/promotion/${promo_item.id}`" ></b-link >
                             </div>
                             </div >
                         </div >
@@ -98,7 +98,6 @@
                 <div class="d-flex justify-content-around" >
                     <div class=" nav-arrow mr-4" @click="moveCarousel(-1)" >
                         <svg xmlns="http://www.w3.org/2000/svg" class="left_ar" viewBox="0 0 30 30" >
-                            <title >logoРесурс 7</title >
                             <g id="Слой_2" data-name="Слой 2" >
                                 <g id="Слой_1-2" data-name="Слой 1" :disabled="atHeadOfList" >
                                     <path class="cls-1"
@@ -113,8 +112,6 @@
                     <div class="nav-arrow mr-2"
                          @click="moveCarousel(1)" >
                         <svg xmlns="http://www.w3.org/2000/svg" class="right_ar" viewBox="0 0 30 30" >
-
-                            <title >logoРесурс 7</title >
                             <g id="Слой_2" data-name="Слой 2" >
                                 <g id="Слой_1-2" data-name="Слой 1" :disabled="atEndOfList" >
                                     <path class="cls-1"

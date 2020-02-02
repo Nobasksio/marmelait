@@ -92,7 +92,7 @@
                                     </div >
                                 </div >
                                 <b-link class='stretched-link'
-                                        :href="'/news#'+news_item.type+''+news_item.id" ></b-link >
+                                        :href="`/news/${news_item.id}`" ></b-link >
                             </div >
 
                         </div >
@@ -179,7 +179,7 @@
 
             paginationFactor() {
                 if (screen.width < 500) {
-                    return screen.width - 15
+                    return screen.width - 30
                 } else {
                     return 345
                 }
