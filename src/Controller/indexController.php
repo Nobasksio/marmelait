@@ -57,8 +57,8 @@ class indexController extends BaseController
                            CategoryRepository $categoryRepository,
                            SliderRepository $sliderRepository)
     {
-        $news = $newsRepository->findAll(['active'=>true],['date'=> 'ASC']);
-        $actions = $actionRepository->findby(['active'=>true],['sort'=> 'ASC']);
+        $news = $newsRepository->findby(['active'=>true],['date'=> 'DESC']);
+        $actions = $actionRepository->findby(['active'=>true],['sort'=> 'DESC']);
         $renters = $renterRepository->findby(['active'=>true],['sort'=> 'ASC']);
         $sliders = $sliderRepository->findby(['active'=>true],['sort'=> 'ASC']);
         $categories = $categoryRepository->findBy([],['sort'=> 'ASC']);

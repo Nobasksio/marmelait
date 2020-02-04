@@ -3,9 +3,13 @@
 </template >
 
 <script >
+    import promoItem from './promo/promo-item'
     export default {
         name: "action-detail-page",
         props:['app_state'],
+        components:{
+            promoItem
+        },
         data: function(){
             return{
                 id_action:this.$route.params.id,

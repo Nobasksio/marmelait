@@ -79,7 +79,7 @@
                 { name: 'viewport', content: 'width=device-width, initial-scale=1' },
                 { name: 'description', content: 'Торговый центр МАРМЕЛАЙТ г. Северск. Пространство для шопинга, отдыха и общения, уникальные бренды и атмосфера уютная атмосфера.' }
             ],
-            title: this.our_renter.name +' в Торговомы центр МАРМЕЛАЙТ г. Северск',
+            title: this.our_renter.name +' в Торговом центр МАРМЕЛАЙТ г. Северск',
         }},
         data: function () {
             return {

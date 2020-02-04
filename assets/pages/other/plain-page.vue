@@ -25,6 +25,7 @@
                 name_page: this.$route.params.name_page
             }
         },
+
         computed:{
             our_articel: function () {
                 let self = this;
