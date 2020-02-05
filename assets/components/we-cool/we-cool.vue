@@ -1,7 +1,7 @@
 <template >
     <div class="container py-5" >
         <div class="row align-items-stretch" >
-            <div class="col-6 col-lg-3 d-flex align-items-stretch" >
+            <div class="col-6 col-lg-3 p-2 d-flex align-items-stretch" >
                 <div class="card-cool" >
                     <div >
                         <img src="/img/icon/first.svg" alt="" class="img_we_cool" >
@@ -13,7 +13,7 @@
                     </div >
                 </div >
             </div >
-            <div class="col-6 col-lg-3 d-flex align-items-stretch" >
+            <div class="col-6 col-lg-3 p-2 d-flex align-items-stretch" >
                 <div class="card-cool " >
                     <div >
                         <img src="/img/icon/comg.svg" alt="" class="img_we_cool" >
@@ -26,7 +26,7 @@
                     </div >
                 </div >
             </div >
-            <div class="col-6 col-lg-3 d-flex align-items-stretch" >
+            <div class="col-6 col-lg-3 p-2 d-flex align-items-stretch" >
                 <div class="card-cool" >
                     <div >
                         <img src="/img/icon/family.svg" alt="" class="img_we_cool" >
@@ -37,7 +37,7 @@
                     </div >
                 </div >
             </div >
-            <div class="col-6 col-lg-3 align-items-stretch" >
+            <div class="col-6 col-lg-3 p-2 align-items-stretch" >
                 <div class="card-cool" >
                     <div >
                         <img src="/img/icon/brands.svg" alt="" class="img_we_cool" >
@@ -67,10 +67,10 @@
     .card-cool {
         background: #f3dde3;
         border-radius: 15px;
-        padding: 40px;
+        padding: 35px;
         height: 100%;
         color:#803556;
-        font-size: 18px;
+        font-size: 16px;
         -webkit-transition: .5s ease-in-out;
         -moz-transition: .5s ease-in-out;
         -o-transition: .5s ease-in-out;
@@ -78,7 +78,7 @@
     }
     .card-cool:hover {
         background: #fae3ea;
-        font-size: 19px;
+        font-size: 18px;
     }
     .text-cool{
         padding-top: 30px;

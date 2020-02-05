@@ -36,7 +36,7 @@
                     </a>
                 </div >
             </div >
-            <div class="col-8 border-left " >
+            <div class="col-md-8 col-12 border-left " >
                 <div class="py-md-0 py-3" v-html="our_renter.description" >
 
                 </div >

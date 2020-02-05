@@ -53,8 +53,6 @@ Vue.component('action-detail-page',actionDetailPage)
 import newsDetailPage from '../pages/promotions/news-detail-page'
 Vue.component('news-detail-page',newsDetailPage)
 
-import sliderActions from '../components/slider-actions'
-Vue.component('slider-actions',sliderActions)
 
 import departmentList from '../components/department-list'
 Vue.component('department-list',departmentList)

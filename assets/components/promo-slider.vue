@@ -159,13 +159,13 @@
 
             paginationFactor() {
                 if (screen.width < 500) {
-                    return screen.width - 15
+                    return screen.width - 30
                 } else {
                     return 345
                 }
             },
             windowSize() {
-                if (screen.width < 400) {
+                if (screen.width < 500) {
                     return 1
                 } else if (screen.width < 1140) {
                     return 2
