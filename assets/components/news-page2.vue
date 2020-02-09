@@ -1,9 +1,9 @@
 <template >
     <div class="container px-md-0" >
         <h3 class="mx-cauto pt-2 pb-4 uppercase" >НОВОСТИ И АКЦИИ</h3 >
-
+        <div class="px-5">
         <promo-item :promo="news_item" :key='index' v-for="(news_item, index) in news"></promo-item>
-
+        </div>
     </div >
 </template >
 

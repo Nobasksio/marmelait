@@ -15,7 +15,7 @@
                     </div >
                     <div class="col p-0" >
                         <div class="d-flex justify-content-center" >
-                            <div class=" nav-arrow mr-4" @click="moveCarousel(-1)" >
+                            <div class=" nav-arrow mr-4" @click="slidePrev(s)" >
                                 <svg xmlns="http://www.w3.org/2000/svg" class="left_ar" viewBox="0 0 30 30" >
                                     <title >logoРесурс 7</title >
                                     <g id="Слой_2" data-name="Слой 2" >
@@ -30,7 +30,7 @@
 
                             </div >
                             <div class="nav-arrow mr-2"
-                                 @click="moveCarousel(1)" >
+                                 @click="slideNext()" >
                                 <svg xmlns="http://www.w3.org/2000/svg" class="right_ar" viewBox="0 0 30 30" >
 
                                     <title >logoРесурс 7</title >
@@ -58,12 +58,18 @@
                 <div class="col d-flex ofh  pr-0"
                 >
 
-                    <div class='col-12 d-flex row align-items-stretch card-carousel-cards_wrapper pr-0'
-                         :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}" >
+                    <hooper :itemsToShow="windowSize"
+                            @slide="updateCarousel"
+                            ref="carousel"
+                            :wheelControl="false"
+                            style="height: 100%"
+                            class='col-12 d-flex row align-items-stretch card-carousel-cards_wrapper pl-0 pl-md-3  pr-0 '>
+                        <slide
+                                class="col-lg-4 col-12 col-md-6 d-flex align-items-stretch pr-0 pr-md-2"
+                                :key='news_item.id'
+                                v-for="(news_item, index) in news">
 
-                        <div class="col-lg-4 col-12 col-md-6 d-flex align-items-stretch"
-                             :key='news_item.id'
-                             v-for="(news_item, index) in news" >
+
                             <div :style="'background: url(/uploads/file/'+news_item.preview+') no-repeat; background-position: center; background-size: cover;'"
                             class="d-flex align-items-end col-12 p-0 news_card"
                             >
@@ -95,16 +101,17 @@
                                         :href="`/news/${news_item.id}`" ></b-link >
                             </div >
 
-                        </div >
+                        </slide>
+                    </hooper>
 
 
-                    </div >
+
                 </div >
             </div >
             <div class="row d-md-none d-flex" >
                 <div class="col py-3" >
                     <div class="d-flex justify-content-around" >
-                        <div class=" nav-arrow mr-4" @click="moveCarousel(-1)" >
+                        <div class=" nav-arrow mr-4"  @click="slidePrev()" >
                             <svg xmlns="http://www.w3.org/2000/svg" class="left_ar" viewBox="0 0 30 30" >
                                 <title >logoРесурс 7</title >
                                 <g id="Слой_2" data-name="Слой 2" >
@@ -119,7 +126,7 @@
 
                         </div >
                         <div class="nav-arrow mr-2"
-                             @click="moveCarousel(1)" >
+                             @click="slideNext()" >
                             <svg xmlns="http://www.w3.org/2000/svg" class="right_ar" viewBox="0 0 30 30" >
 
                                 <title >logoРесурс 7</title >
@@ -153,18 +160,21 @@
 </template >
 
 <script >
+    import {Hooper, Slide} from 'hooper';
+    import 'hooper/dist/hooper.css';
     import promoSlider from './promo-slider'
 
     export default {
         name: "main-news-slider",
         props: ['news', 'promo'],
         components: {
-            promoSlider
+            promoSlider,
+            Hooper,
+            Slide,
         },
         data() {
             return {
-                currentOffset: 0,
-
+                carouselData: 1,
             }
         },
         computed: {
@@ -179,7 +189,7 @@
 
             paginationFactor() {
                 if (screen.width < 500) {
-                    return screen.width - 30
+                    return screen.width
                 } else {
                     return 345
                 }
@@ -195,21 +205,16 @@
             }
         },
         methods: {
-            moveCarousel(direction) {
-                // Find a more elegant way to express the :style. consider using props to make it truly generic
-                if (direction === 1 && !this.atEndOfList) {
-                    this.currentOffset -= this.paginationFactor;
-                } else if (direction === -1 && !this.atHeadOfList) {
-                    this.currentOffset += this.paginationFactor;
-                }
+            slidePrev() {
+                this.$refs.carousel.slidePrev();
             },
-            mouseon(ref_name, type) {
-
+            slideNext() {
+                this.$refs.carousel.slideNext();
 
             },
-            mouseout(ref_name, type) {
-
-            }
+            updateCarousel(payload) {
+                this.carouselData = payload.currentSlide;
+            },
 
         }
     }

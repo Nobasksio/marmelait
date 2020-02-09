@@ -1,5 +1,7 @@
 <template >
-    <promo-item :promo="our_new" :detail="true"></promo-item >
+    <div class="px-3">
+        <promo-item :promo="our_new" :detail="true" ></promo-item >
+    </div >
 </template >
 
 <script >

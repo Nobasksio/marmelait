@@ -14,7 +14,7 @@
 
 
                     <div class="d-flex justify-content-center " >
-                        <div class=" nav-arrow mr-4" @click="moveCarousel(-1)" >
+                        <div class=" nav-arrow mr-4" @click="slidePrev()" >
                             <svg xmlns="http://www.w3.org/2000/svg" class="left_ar_promo" viewBox="0 0 30 30" >
 
                                 <g id="Слой_2" data-name="Слой 2" >
@@ -29,7 +29,7 @@
 
                         </div >
                         <div class="nav-arrow mr-2"
-                             @click="moveCarousel(1)" >
+                             @click="slideNext()" >
                             <svg xmlns="http://www.w3.org/2000/svg" class="right_ar_promo" viewBox="0 0 30 30" >
                                 <g id="Слой_2" data-name="Слой 2" >
                                     <g id="Слой_1-2" data-name="Слой 1" :disabled="atEndOfList" >
@@ -54,12 +54,18 @@
             </div >
             <div class="col d-flex ofh pr-0"
             >
-                <div class='col-12 d-flex row align-items-stretch card-carousel-cards_wrapper pr-0'
-                     :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}" >
-                    <div class="col-lg-4 col-12 col-md-6 d-flex align-items-stretch"
-                         :key='promo_item.id'
-                         v-for="(promo_item, index) in promo"
-                    >
+
+                    <hooper  :itemsToShow="windowSize"
+                             @slide="updateCarousel"
+                             :wheelControl="false"
+                             ref="carousel"
+                             style="height: 100%"
+                             class='col-12 d-flex row align-items-stretch card-carousel-cards_wrapper pl-0 pl-md-3  pr-0'>
+                        <slide   :key='promo_item.id'
+                                 v-for="(promo_item, index) in promo"
+                                 class="col-lg-4 col-12 col-md-6 d-flex align-items-stretch pr-0 pr-md-2"
+                        >
+
                         <div :style="'background: url(/uploads/file/'+promo_item.preview+') no-repeat; background-position: center; background-size: cover;'"
                              class="d-flex align-items-end col-12 p-0 news_card"
                         >
@@ -89,15 +95,17 @@
                             <b-link class='stretched-link'
                                     :href="`/promotion/${promo_item.id}`" ></b-link >
                         </div >
-                    </div >
-                </div >
+
+                        </slide>
+                    </hooper>
+
 
             </div >
         </div >
         <div class="row d-md-none d-flex" >
             <div class="col py-3" >
                 <div class="d-flex justify-content-around" >
-                    <div class=" nav-arrow mr-4" @click="moveCarousel(-1)" >
+                    <div class=" nav-arrow mr-4" @click="slidePrev()" >
                         <svg xmlns="http://www.w3.org/2000/svg" class="left_ar" viewBox="0 0 30 30" >
                             <g id="Слой_2" data-name="Слой 2" >
                                 <g id="Слой_1-2" data-name="Слой 1" :disabled="atHeadOfList" >
@@ -111,7 +119,7 @@
 
                     </div >
                     <div class="nav-arrow mr-2"
-                         @click="moveCarousel(1)" >
+                         @click="slideNext()" >
                         <svg xmlns="http://www.w3.org/2000/svg" class="right_ar" viewBox="0 0 30 30" >
                             <g id="Слой_2" data-name="Слой 2" >
                                 <g id="Слой_1-2" data-name="Слой 1" :disabled="atEndOfList" >
@@ -138,13 +146,18 @@
 </template >
 
 <script >
+    import {Hooper, Slide} from 'hooper';
+    import 'hooper/dist/hooper.css';
     export default {
         name: "promo-slider",
         props: ['promo'],
+        components: {
+            Hooper,
+            Slide,
+        },
         data() {
             return {
-                currentOffset: 0,
-
+                carouselData: 1,
             }
         },
         computed: {
@@ -175,21 +188,16 @@
             }
         },
         methods: {
-            moveCarousel(direction) {
-                // Find a more elegant way to express the :style. consider using props to make it truly generic
-                if (direction === 1 && !this.atEndOfList) {
-                    this.currentOffset -= this.paginationFactor;
-                } else if (direction === -1 && !this.atHeadOfList) {
-                    this.currentOffset += this.paginationFactor;
-                }
+            slidePrev() {
+                this.$refs.carousel.slidePrev();
             },
-            mouseon(ref_name, type) {
-
+            slideNext() {
+                this.$refs.carousel.slideNext();
 
             },
-            mouseout(ref_name, type) {
-
-            }
+            updateCarousel(payload) {
+                this.carouselData = payload.currentSlide;
+            },
 
         }
     }

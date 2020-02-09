@@ -3,7 +3,7 @@
         <h3 class="bold pt-2 pb-4" >{{our_renter.name}}</h3 >
         <div class="row" >
             <div class="col-md-3 d-none text-center d-md-flex align-items-center justify-content-center px-md-3" >
-                <img :src="'/uploads/file/'+our_renter.logo" alt="" >
+                <img :src="'/uploads/file/'+our_renter.logo" alt="" class="img-fluid">
             </div >
             <div class="col-md-9 col-12 text-center px-md-0" >
                 <img :src="'/uploads/file/'+our_renter.image" alt="" class="img-fluid" >
@@ -12,7 +12,7 @@
         <div class="row py-4" >
             <div class="d-md-none col-6" >
                 <div class="col-md-3 col-12 text-center d-flex align-items-center justify-content-center px-0" >
-                    <img :src="'/uploads/file/'+our_renter.logo" alt="" >
+                    <img :src="'/uploads/file/'+our_renter.logo" alt="" class="img-fluid">
                 </div >
             </div >
             <div class="col-md-3 col-6 text-md-center d-flex flex-column  justify-content-center px-0" >

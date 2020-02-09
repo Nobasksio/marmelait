@@ -60,25 +60,52 @@
 </script >
 
 <style scoped >
-    .img_we_cool {
-        max-height: 100px;
-    }
 
-    .card-cool {
-        background: #f3dde3;
-        border-radius: 15px;
-        padding: 35px;
-        height: 100%;
-        color:#803556;
-        font-size: 16px;
-        -webkit-transition: .5s ease-in-out;
-        -moz-transition: .5s ease-in-out;
-        -o-transition: .5s ease-in-out;
-        transition: .5s ease-in-out;
+
+    @media (min-width: 720px) {
+
+        .img_we_cool {
+            max-height: 100px;
+        }
+        .card-cool {
+            background: #f3dde3;
+            border-radius: 15px;
+            padding: 35px;
+            height: 100%;
+            color: #803556;
+            font-size: 16px;
+            -webkit-transition: .5s ease-in-out;
+            -moz-transition: .5s ease-in-out;
+            -o-transition: .5s ease-in-out;
+            transition: .5s ease-in-out;
+        }
+
+        .card-cool:hover {
+            background: #fae3ea;
+            font-size: 18px;
+        }
     }
-    .card-cool:hover {
-        background: #fae3ea;
-        font-size: 18px;
+    @media (max-width: 719px) {
+        .img_we_cool {
+            max-height: 60px;
+        }
+        .card-cool {
+            background: #f3dde3;
+            border-radius: 15px;
+            padding: 35px;
+            height: 100%;
+            color: #803556;
+            font-size: 11px;
+            -webkit-transition: .5s ease-in-out;
+            -moz-transition: .5s ease-in-out;
+            -o-transition: .5s ease-in-out;
+            transition: .5s ease-in-out;
+        }
+
+        .card-cool:hover {
+            background: #fae3ea;
+            font-size: 13px;
+        }
     }
     .text-cool{
         padding-top: 30px;
