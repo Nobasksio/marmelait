@@ -99,7 +99,10 @@ class RenterController extends BaseController
     /**
      * @Route("/admin/renter/redact/{id}", name="renter_redact")
      */
-    public function renterRedact(Renter $renter, Request $request, ObjectManager $manager,MapPlaceRepository $mpr){
+    public function renterRedact(Renter $renter,
+                                 Request $request,
+                                 ObjectManager $manager,
+                                 MapPlaceRepository $mpr){
 
 
         $form = $this->createForm(
@@ -140,8 +143,11 @@ class RenterController extends BaseController
             $map_place = $mpr->findOneBy(['renter'=>$renter]);
 
             if ($map_place) {
-                $map_place->setRenter(null);
-                $manager->persist($map_place);
+
+                if ($renter->getMapPlace()->getId() != $map_place->getId()) {
+                    $map_place->setRenter(null);
+                    $manager->persist($map_place);
+                }
             }
 
             $manager->persist($renter);
